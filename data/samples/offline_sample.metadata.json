@@ -1,0 +1,13 @@
+{
+  "created_at_utc": "2026-11-19T11:02:41.988855+00:00",
+  "dataset_id": "offline_sample",
+  "dataset_name": "Offline sample",
+  "edge_count": 34,
+  "graph_type": "MultiDiGraph",
+  "is_offline_sample": true,
+  "node_count": 16,
+  "osm_acquisition_parameters": {},
+  "source": "SYNTHETIC",
+  "study_area": "Synthetic New Delhi grid",
+  "weighting_version": "1"
+}

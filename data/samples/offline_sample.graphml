@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d3" for="edge" attr.name="attrs" attr.type="string" />
+  <key id="d2" for="node" attr.name="attrs" attr.type="string" />
+  <key id="d1" for="graph" attr.name="metadata" attr.type="string" />
+  <key id="d0" for="graph" attr.name="attrs" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="0">
+      <data key="d2">{"x": 77.21, "y": 28.63}</data>
+    </node>
+    <node id="1">
+      <data key="d2">{"x": 77.211, "y": 28.63}</data>
+    </node>
+    <node id="2">
+      <data key="d2">{"x": 77.21199999999999, "y": 28.63}</data>
+    </node>
+    <node id="3">
+      <data key="d2">{"x": 77.213, "y": 28.63}</data>
+    </node>
+    <node id="4">
+      <data key="d2">{"x": 77.21, "y": 28.631}</data>
+    </node>
+    <node id="5">
+      <data key="d2">{"x": 77.211, "y": 28.631}</data>
+    </node>
+    <node id="6">
+      <data key="d2">{"x": 77.21199999999999, "y": 28.631}</data>
+    </node>
+    <node id="7">
+      <data key="d2">{"x": 77.213, "y": 28.631}</data>
+    </node>
+    <node id="8">
+      <data key="d2">{"x": 77.21, "y": 28.631999999999998}</data>
+    </node>
+    <node id="9">
+      <data key="d2">{"x": 77.211, "y": 28.631999999999998}</data>
+    </node>
+    <node id="10">
+      <data key="d2">{"x": 77.21199999999999, "y": 28.631999999999998}</data>
+    </node>
+    <node id="11">
+      <data key="d2">{"x": 77.213, "y": 28.631999999999998}</data>
+    </node>
+    <node id="12">
+      <data key="d2">{"x": 77.21, "y": 28.633}</data>
+    </node>
+    <node id="13">
+      <data key="d2">{"x": 77.211, "y": 28.633}</data>
+    </node>
+    <node id="14">
+      <data key="d2">{"x": 77.21199999999999, "y": 28.633}</data>
+    </node>
+    <node id="15">
+      <data key="d2">{"x": 77.213, "y": 28.633}</data>
+    </node>
+    <edge source="0" target="1" id="0">
+      <data key="d3">{"highway": "residential", "length": 100, "length_m": 100.0, "oneway": true, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 14.4}</data>
+    </edge>
+    <edge source="0" target="1" id="7">
+      <data key="d3">{"highway": "primary", "length": 140, "length_m": 140.0, "oneway": true, "speed_kph": 50, "speed_source": "estimated_fallback", "travel_time_s": 10.08}</data>
+    </edge>
+    <edge source="0" target="4" id="0">
+      <data key="d3">{"highway": "residential", "length": 100, "length_m": 100.0, "oneway": true, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 14.4}</data>
+    </edge>
+    <edge source="1" target="2" id="0">
+      <data key="d3">{"highway": "residential", "length": 103, "length_m": 103.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 14.831999999999999}</data>
+    </edge>
+    <edge source="1" target="5" id="0">
+      <data key="d3">{"highway": "residential", "length": 103, "length_m": 103.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 14.831999999999999}</data>
+    </edge>
+    <edge source="2" target="1" id="0">
+      <data key="d3">{"highway": "residential", "length": 103, "length_m": 103.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 14.831999999999999}</data>
+    </edge>
+    <edge source="2" target="3" id="0">
+      <data key="d3">{"highway": "residential", "length": 106, "length_m": 106.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 15.264}</data>
+    </edge>
+    <edge source="2" target="6" id="0">
+      <data key="d3">{"highway": "residential", "length": 106, "length_m": 106.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 15.264}</data>
+    </edge>
+    <edge source="3" target="2" id="0">
+      <data key="d3">{"highway": "residential", "length": 106, "length_m": 106.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 15.264}</data>
+    </edge>
+    <edge source="3" target="7" id="0">
+      <data key="d3">{"highway": "residential", "length": 109, "length_m": 109.0, "oneway": true, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 15.696}</data>
+    </edge>
+    <edge source="4" target="5" id="0">
+      <data key="d3">{"highway": "residential", "length": 112, "length_m": 112.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 16.128}</data>
+    </edge>
+    <edge source="4" target="8" id="0">
+      <data key="d3">{"highway": "residential", "length": 112, "length_m": 112.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 16.128}</data>
+    </edge>
+    <edge source="5" target="1" id="0">
+      <data key="d3">{"highway": "residential", "length": 103, "length_m": 103.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 14.831999999999999}</data>
+    </edge>
+    <edge source="5" target="4" id="0">
+      <data key="d3">{"highway": "residential", "length": 112, "length_m": 112.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 16.128}</data>
+    </edge>
+    <edge source="5" target="6" id="0">
+      <data key="d3">{"highway": "residential", "length": 115, "length_m": 115.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 16.56}</data>
+    </edge>
+    <edge source="5" target="9" id="0">
+      <data key="d3">{"highway": "residential", "length": 115, "length_m": 115.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 16.56}</data>
+    </edge>
+    <edge source="6" target="2" id="0">
+      <data key="d3">{"highway": "residential", "length": 106, "length_m": 106.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 15.264}</data>
+    </edge>
+    <edge source="6" target="5" id="0">
+      <data key="d3">{"highway": "residential", "length": 115, "length_m": 115.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 16.56}</data>
+    </edge>
+    <edge source="6" target="7" id="0">
+      <data key="d3">{"highway": "residential", "length": 118, "length_m": 118.0, "oneway": true, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 16.992}</data>
+    </edge>
+    <edge source="6" target="10" id="0">
+      <data key="d3">{"highway": "residential", "length": 118, "length_m": 118.0, "oneway": true, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 16.992}</data>
+    </edge>
+    <edge source="7" target="11" id="0">
+      <data key="d3">{"highway": "residential", "length": 121, "length_m": 121.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 17.424}</data>
+    </edge>
+    <edge source="8" target="4" id="0">
+      <data key="d3">{"highway": "residential", "length": 112, "length_m": 112.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 16.128}</data>
+    </edge>
+    <edge source="8" target="9" id="0">
+      <data key="d3">{"highway": "residential", "length": 124, "length_m": 124.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 17.855999999999998}</data>
+    </edge>
+    <edge source="8" target="12" id="0">
+      <data key="d3">{"highway": "residential", "length": 124, "length_m": 124.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 17.855999999999998}</data>
+    </edge>
+    <edge source="9" target="5" id="0">
+      <data key="d3">{"highway": "residential", "length": 115, "length_m": 115.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 16.56}</data>
+    </edge>
+    <edge source="9" target="8" id="0">
+      <data key="d3">{"highway": "residential", "length": 124, "length_m": 124.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 17.855999999999998}</data>
+    </edge>
+    <edge source="9" target="10" id="0">
+      <data key="d3">{"highway": "residential", "length": 127, "length_m": 127.0, "oneway": true, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 18.288}</data>
+    </edge>
+    <edge source="9" target="13" id="0">
+      <data key="d3">{"highway": "residential", "length": 127, "length_m": 127.0, "oneway": true, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 18.288}</data>
+    </edge>
+    <edge source="10" target="11" id="0">
+      <data key="d3">{"highway": "residential", "length": 130, "length_m": 130.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 18.72}</data>
+    </edge>
+    <edge source="11" target="7" id="0">
+      <data key="d3">{"highway": "residential", "length": 121, "length_m": 121.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 17.424}</data>
+    </edge>
+    <edge source="11" target="10" id="0">
+      <data key="d3">{"highway": "residential", "length": 130, "length_m": 130.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 18.72}</data>
+    </edge>
+    <edge source="12" target="8" id="0">
+      <data key="d3">{"highway": "residential", "length": 124, "length_m": 124.0, "oneway": false, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 17.855999999999998}</data>
+    </edge>
+    <edge source="12" target="13" id="0">
+      <data key="d3">{"highway": "residential", "length": 136, "length_m": 136.0, "oneway": true, "speed_kph": 25, "speed_source": "estimated_fallback", "travel_time_s": 19.584}</data>
+    </edge>
+    <edge source="14" target="15" id="0">
+      <data key="d3">{"highway": "service", "length": 90, "length_m": 90.0, "oneway": true, "speed_kph": 15, "speed_source": "estimated_fallback", "travel_time_s": 21.599999999999998}</data>
+    </edge>
+    <data key="d0">{"crs": "EPSG:4326"}</data>
+    <data key="d1">{"dataset_id": "offline_sample", "dataset_name": "Offline sample", "source": "SYNTHETIC", "study_area": "Synthetic New Delhi grid", "created_at_utc": "2026-11-19T11:02:41.988855+00:00", "node_count": 16, "edge_count": 34, "graph_type": "MultiDiGraph", "weighting_version": "1", "osm_acquisition_parameters": {}, "is_offline_sample": true}</data>
+  </graph>
+</graphml>

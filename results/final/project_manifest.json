@@ -1,0 +1,34 @@
+{
+  "experiment_id": "bench_20261119_145016_531b5c",
+  "timestamp_utc": "2026-11-19T14:50:17.060773+00:00",
+  "dataset_id": "offline_sample",
+  "dataset_fingerprint": "3ac4402cda7adcc5",
+  "graph_sizes": [
+    10,
+    16
+  ],
+  "algorithms": [
+    "dijkstra",
+    "astar",
+    "bidirectional_dijkstra"
+  ],
+  "objectives": [
+    "distance",
+    "travel_time"
+  ],
+  "query_count": 16,
+  "repetitions": 3,
+  "warmup_count": 1,
+  "random_seed": 42,
+  "timing_scope": "isolated_end_to_end_search_call",
+  "memory_measurement_scope": "tracemalloc_peak_python_allocations",
+  "python_version": "3.11.16",
+  "dependency_versions": {
+    "networkx": "3.4.2",
+    "numpy": "2.x"
+  },
+  "os_platform": "Windows-10-10.0.26300-SP0",
+  "details": {
+    "total_runs": 636
+  }
+}

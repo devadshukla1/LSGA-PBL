@@ -1,0 +1,13 @@
+dataset_id,graph_size_label,node_count,algorithm,objective,query_count,successful_runs,failed_runs,mean_runtime_ms,median_runtime_ms,std_runtime_ms,min_runtime_ms,max_runtime_ms,p95_runtime_ms,mean_nodes_expanded,mean_edges_examined,mean_peak_memory_mb,route_validity_rate,optimality_verification_rate
+offline_sample_full,N=16,16,astar,distance,16,48,0,0.9497,0.8983,0.1916,0.7292,1.491,1.2784,4.56,9.88,0.0103,1.0,1.0
+offline_sample_full,N=16,16,astar,travel_time,16,48,0,0.6767,0.6447,0.166,0.5826,1.7398,0.7703,4.75,10.25,0.0103,1.0,1.0
+offline_sample_full,N=16,16,bidirectional_dijkstra,distance,16,48,0,0.1837,0.1712,0.0698,0.0927,0.4351,0.2913,3.69,9.75,0.0044,1.0,1.0
+offline_sample_full,N=16,16,bidirectional_dijkstra,travel_time,16,48,0,0.1406,0.1187,0.0559,0.0747,0.3734,0.2201,3.88,10.0,0.0046,1.0,1.0
+offline_sample_full,N=16,16,dijkstra,distance,16,48,0,0.187,0.1788,0.0412,0.1211,0.2789,0.2597,7.06,15.06,0.0092,1.0,1.0
+offline_sample_full,N=16,16,dijkstra,travel_time,16,48,0,0.1369,0.1371,0.0184,0.101,0.1689,0.1672,7.06,15.06,0.0092,1.0,1.0
+offline_sample_n10,N=10,10,astar,distance,16,48,0,0.7705,0.7676,0.0803,0.614,0.964,0.9168,4.06,8.06,0.008,1.0,1.0
+offline_sample_n10,N=10,10,astar,travel_time,16,48,0,0.7388,0.7289,0.051,0.6409,0.8974,0.8208,4.38,9.0,0.008,1.0,1.0
+offline_sample_n10,N=10,10,bidirectional_dijkstra,distance,16,48,0,0.1603,0.1523,0.0509,0.0807,0.2698,0.2352,4.12,9.81,0.0047,1.0,1.0
+offline_sample_n10,N=10,10,bidirectional_dijkstra,travel_time,16,48,0,0.1547,0.1439,0.052,0.0771,0.2696,0.2368,4.12,9.81,0.0047,1.0,1.0
+offline_sample_n10,N=10,10,dijkstra,distance,16,48,0,0.1343,0.1288,0.0217,0.0969,0.2037,0.1641,5.81,11.25,0.0069,1.0,1.0
+offline_sample_n10,N=10,10,dijkstra,travel_time,16,48,0,0.1339,0.1299,0.039,0.091,0.3694,0.1575,5.81,11.25,0.0069,1.0,1.0
