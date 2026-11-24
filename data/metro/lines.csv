@@ -1,0 +1,14 @@
+line_id,line_name,color,operator
+L01,Aqua line,#06B6D4,DMRC / NMRC / Rapid Metro
+L02,Blue line,#3B82F6,DMRC / NMRC / Rapid Metro
+L03,Blue line branch,#60A5FA,DMRC / NMRC / Rapid Metro
+L04,Gray line,#64748B,DMRC / NMRC / Rapid Metro
+L05,Green line,#22C55E,DMRC / NMRC / Rapid Metro
+L06,Green line branch,#4ADE80,DMRC / NMRC / Rapid Metro
+L07,Magenta line,#D946EF,DMRC / NMRC / Rapid Metro
+L08,Orange line,#F97316,DMRC / NMRC / Rapid Metro
+L09,Pink line,#EC4899,DMRC / NMRC / Rapid Metro
+L10,Rapid Metro,#6366F1,DMRC / NMRC / Rapid Metro
+L11,Red line,#EF4444,DMRC / NMRC / Rapid Metro
+L12,Voilet line,#8B5CF6,DMRC / NMRC / Rapid Metro
+L13,Yellow line,#EAB308,DMRC / NMRC / Rapid Metro

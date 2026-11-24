@@ -1,0 +1,25 @@
+Label,Algorithm,Objective,Reachable,Stops,Transfers,Distance (km),Estimated Time (min),Travel Time (min),Modeled Journey Time (min),Explored Nodes,Examined Edges,Runtime (ms),Source_ID,Destination_ID,OD_Pair_Label
+BFS (Min Stops),BFS,Minimum Stops,Yes,14,1,19.30,46.8,46.8,46.8,127,286,0.35,STN001,STN026,AIIMS to Cyber City
+Dijkstra (Min Time),Dijkstra,Minimum Time,Yes,14,1,19.30,46.8,46.8,46.8,143,166,0.53,STN001,STN026,AIIMS to Cyber City
+Dijkstra (Min Distance),Dijkstra,Minimum Distance,Yes,14,1,19.30,46.8,46.8,46.8,150,175,0.51,STN001,STN026,AIIMS to Cyber City
+0-1 BFS (Min Transfers),0-1 BFS,Minimum Transfers,Yes,14,1,19.30,46.8,46.8,46.8,254,551,1.22,STN001,STN026,AIIMS to Cyber City
+Lexicographic (Transfers then Fastest),Lexicographic Dijkstra,Min Transfers Then Fastest,Yes,14,1,19.30,46.8,46.8,46.8,140,335,1.09,STN001,STN026,AIIMS to Cyber City
+Transfer-Aware (5m Penalty),Transfer-Aware Dijkstra,Transfer Aware Fastest,Yes,14,1,19.30,46.8,46.8,51.8,150,359,1.07,STN001,STN026,AIIMS to Cyber City
+BFS (Min Stops),BFS,Minimum Stops,Yes,4,0,4.00,10.9,10.9,10.9,13,32,0.05,STN199,STN097,Rajiv Chowk to Kashmere Gate
+Dijkstra (Min Time),Dijkstra,Minimum Time,Yes,4,0,4.00,10.9,10.9,10.9,20,25,0.09,STN199,STN097,Rajiv Chowk to Kashmere Gate
+Dijkstra (Min Distance),Dijkstra,Minimum Distance,Yes,4,0,4.00,10.9,10.9,10.9,18,23,0.07,STN199,STN097,Rajiv Chowk to Kashmere Gate
+0-1 BFS (Min Transfers),0-1 BFS,Minimum Transfers,Yes,4,0,4.00,10.9,10.9,10.9,112,202,0.51,STN199,STN097,Rajiv Chowk to Kashmere Gate
+Lexicographic (Transfers then Fastest),Lexicographic Dijkstra,Min Transfers Then Fastest,Yes,4,0,4.00,10.9,10.9,10.9,18,44,0.15,STN199,STN097,Rajiv Chowk to Kashmere Gate
+Transfer-Aware (5m Penalty),Transfer-Aware Dijkstra,Transfer Aware Fastest,Yes,4,0,4.00,10.9,10.9,10.9,18,44,0.14,STN199,STN097,Rajiv Chowk to Kashmere Gate
+BFS (Min Stops),BFS,Minimum Stops,Yes,3,0,4.70,11.0,11.0,11.0,4,8,0.02,STN053,STN176,Dwarka Sector 21 to Noida City Centre
+Dijkstra (Min Time),Dijkstra,Minimum Time,Yes,3,0,4.70,11.0,11.0,11.0,6,5,0.04,STN053,STN176,Dwarka Sector 21 to Noida City Centre
+Dijkstra (Min Distance),Dijkstra,Minimum Distance,Yes,3,0,4.70,11.0,11.0,11.0,6,5,0.03,STN053,STN176,Dwarka Sector 21 to Noida City Centre
+0-1 BFS (Min Transfers),0-1 BFS,Minimum Transfers,Yes,3,0,4.70,11.0,11.0,11.0,47,80,0.22,STN053,STN176,Dwarka Sector 21 to Noida City Centre
+Lexicographic (Transfers then Fastest),Lexicographic Dijkstra,Min Transfers Then Fastest,Yes,3,0,4.70,11.0,11.0,11.0,7,11,0.05,STN053,STN176,Dwarka Sector 21 to Noida City Centre
+Transfer-Aware (5m Penalty),Transfer-Aware Dijkstra,Transfer Aware Fastest,Yes,3,0,4.70,11.0,11.0,11.0,7,11,0.04,STN053,STN176,Dwarka Sector 21 to Noida City Centre
+BFS (Min Stops),BFS,Minimum Stops,Yes,14,2,20.40,49.1,49.1,49.1,111,245,0.33,STN065,STN101,Hauz Khas to Kirti Nagar
+Dijkstra (Min Time),Dijkstra,Minimum Time,Yes,16,1,17.50,45.9,45.9,45.9,130,148,0.54,STN065,STN101,Hauz Khas to Kirti Nagar
+Dijkstra (Min Distance),Dijkstra,Minimum Distance,Yes,16,1,17.50,45.9,45.9,45.9,115,135,0.43,STN065,STN101,Hauz Khas to Kirti Nagar
+0-1 BFS (Min Transfers),0-1 BFS,Minimum Transfers,Yes,16,1,17.50,45.9,45.9,45.9,264,575,1.71,STN065,STN101,Hauz Khas to Kirti Nagar
+Lexicographic (Transfers then Fastest),Lexicographic Dijkstra,Min Transfers Then Fastest,Yes,16,1,17.50,45.9,45.9,45.9,143,334,1.22,STN065,STN101,Hauz Khas to Kirti Nagar
+Transfer-Aware (5m Penalty),Transfer-Aware Dijkstra,Transfer Aware Fastest,Yes,16,1,17.50,45.9,45.9,50.9,139,327,1.24,STN065,STN101,Hauz Khas to Kirti Nagar

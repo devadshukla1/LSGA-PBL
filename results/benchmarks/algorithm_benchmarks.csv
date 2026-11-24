@@ -1,0 +1,19 @@
+Dataset,Nodes,Edges,Algorithm,Complexity,median_ms,mean_ms,std_ms,min_ms,max_ms
+Sample Graph (12 Stns),12,14,BFS (Min Stops),O(V + E),0.03855,0.03916,0.0013639648089302002,0.0376,0.0426
+Sample Graph (12 Stns),12,14,Dijkstra (Min Time),O((V + E) log V),0.0598,0.07164,0.03487397883809647,0.0556,0.1754
+Sample Graph (12 Stns),12,14,0-1 BFS (Min Transfers),O(L * (V + E)),0.1254,0.13398,0.01738302620374255,0.1211,0.1794
+Sample Graph (12 Stns),12,14,Lexicographic Dijkstra,O(S log S),0.09809999999999999,0.10171,0.009407066492802102,0.0965,0.1292
+Sample Graph (12 Stns),12,14,Transfer-Aware Dijkstra,O(S log S),0.0956,0.09670000000000001,0.005182663407939976,0.0915,0.1111
+Sample Graph (12 Stns),12,14,Degree Centrality,O(V + E),0.0081,0.00843,0.0010844814429025512,0.0078,0.0116
+Sample Graph (12 Stns),12,14,Betweenness Centrality,O(V * E),0.1693,0.1697666666666667,0.0010338708279513814,0.1688,0.1712
+Sample Graph (12 Stns),12,14,Articulation Points (Tarjan),O(V + E),0.0161,0.01619,0.0007077428911688198,0.0152,0.018
+Sample Graph (12 Stns),12,14,Closure Simulation Engine,O(V + E),0.12375,0.15156,0.06809647861673906,0.1146,0.3466
+Delhi Metro Network (260 Stns),260,273,BFS (Min Stops),O(V + E),0.73335,0.76561,0.1571099070714511,0.615,1.089
+Delhi Metro Network (260 Stns),260,273,Dijkstra (Min Time),O((V + E) log V),0.86115,0.8858900000000001,0.07032593333898954,0.8086,1.0094
+Delhi Metro Network (260 Stns),260,273,0-1 BFS (Min Transfers),O(L * (V + E)),1.64535,1.72059,0.16432687211773978,1.5635,2.0281
+Delhi Metro Network (260 Stns),260,273,Lexicographic Dijkstra,O(S log S),1.9156499999999999,1.9464800000000004,0.1449070653902011,1.8101,2.3418
+Delhi Metro Network (260 Stns),260,273,Transfer-Aware Dijkstra,O(S log S),2.0738000000000003,2.11844,0.2406863195115169,1.7316,2.4735
+Delhi Metro Network (260 Stns),260,273,Degree Centrality,O(V + E),0.1168,0.11922000000000002,0.005406625564989685,0.1154,0.1337
+Delhi Metro Network (260 Stns),260,273,Betweenness Centrality,O(V * E),106.6966,104.77463333333333,4.838877591848019,98.1258,109.5015
+Delhi Metro Network (260 Stns),260,273,Articulation Points (Tarjan),O(V + E),0.5407,0.5585499999999999,0.09444626249884112,0.4768,0.8097
+Delhi Metro Network (260 Stns),260,273,Closure Simulation Engine,O(V + E),2.18325,2.36732,0.46903775071949166,1.9766,3.5456

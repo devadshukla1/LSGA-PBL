@@ -1,0 +1,6 @@
+Scenario,Closed_Stations,Closed_Count,Remaining_Stations,Remaining_Edges,Connected_Components,Largest_Component_Size,Reachable_Station_Pairs,Reachable_Pairs_Lost,Reachability_Ratio,Sample_Route_OD,Reroute_Status,Stops_Delta,Time_Delta_Min
+Baseline (No Closures),None,0,260,273,1,260,33670,0,1.0,STN053 -> STN176,UNCHANGED,0,0.0
+High Betweenness Hub (Rajiv Chowk),STN199,1,259,269,1,259,33411,259,1.0,STN053 -> STN176,UNCHANGED,0,0.0
+Major Transfer Hub (Kashmere Gate),STN097,1,259,268,1,259,33411,259,1.0,STN199 -> STN206,UNCHANGED,0,0.0
+Multi-Hub Severe Outage (Rajiv Chowk + Kashmere Gate),"STN199, STN097",2,258,264,2,255,32388,1282,0.9769,STN053 -> STN176,UNCHANGED,0,0.0
+Cut-Vertex (Badarpur),STN018,1,259,270,2,231,26943,6727,0.8064,STN001 -> STN018,ENDPOINT_CLOSED,0,0.0

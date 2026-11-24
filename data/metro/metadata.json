@@ -1,0 +1,16 @@
+{
+  "dataset_name": "Delhi Metro Network Dataset (Normalized)",
+  "source_organization": "Delhi Metro Rail Corporation (DMRC) open transit feeds via community archive",
+  "original_url": "https://raw.githubusercontent.com/heyamay/Delhi-Metro-Network-Analysis/main/Delhi-Metro-Network.csv",
+  "access_date": "2026-11-20",
+  "license": "Open Data Commons Open Database License (ODbL) / Public Community Transit Data",
+  "version": "2.0.0",
+  "geographic_coverage": "National Capital Region (NCR), Delhi, Noida, Gurgaon, India",
+  "station_count": 260,
+  "line_count": 13,
+  "connection_count": 273,
+  "station_line_memberships": 285,
+  "fingerprint": "26636c2a6651a0ed",
+  "assumed_speed_kmph": 35.0,
+  "data_limitations": "Segment distances derived from sequential distance-from-start metrics; Pedestrian walkway between Noida Sector 51 and Sector 52 added to link Aqua line; Estimated travel times computed via commercial average speed (35 km/h) plus dwell times."
+}

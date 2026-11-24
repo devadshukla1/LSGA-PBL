@@ -1,229 +1,174 @@
-# Viva Voce Examination: Comprehensive Question Bank & Model Answers
+# Comprehensive Viva Voce Questions & Answers
 
-**Product:** SmartRoute Analytics  
-**Academic Title:** Intelligent Emergency Vehicle Routing and Urban Road Network Resilience Analysis Using Large-Scale Graph Algorithms  
-**Course:** Large-Scale Graph Analysis (LSGA PBL)  
-**Total Questions:** 65 Questions with Concise, Technically Grounded Answers  
-
----
-
-## SECTION A: Project Fundamentals & Objectives (Questions 1–10)
-
-### Q1: What is the primary objective of the SmartRoute Analytics project?
-**Answer:** To model urban road networks as directed multigraphs, implement and evaluate optimal shortest-path and alternative routing algorithms for emergency response under simulated congestion, analyze structural network resilience and critical intersections, and evaluate graph partitioning and spatial indexing performance.
-
-### Q2: Is this a live navigation or emergency vehicle dispatch system?
-**Answer:** No. It is an academic, offline-capable graph analytics and research prototype. Traffic congestion and road disruptions are deterministically simulated to evaluate algorithmic behaviors and network resilience.
-
-### Q3: What technology stack does the application use?
-**Answer:** Python 3.11, NetworkX for in-memory graph representation and reference algorithms, OSMnx for OpenStreetMap ingestion, Streamlit for the multi-page dashboard, PyDeck for WebGL geospatial rendering, SciPy for 3D KD-Tree spatial indexing, and Pytest/Ruff for automated verification.
-
-### Q4: Why is road network routing modeled as a graph problem?
-**Answer:** Road intersections naturally correspond to vertices $V$, directed road segments correspond to directed edges $E$, and physical constraints such as road length, speed limits, and traffic delays correspond to edge weights $w(e)$.
-
-### Q5: How does the system ensure reproducible scientific results?
-**Answer:** All pseudorandom processes—including synthetic graph generation, traffic congestion distributions, node percolation failure orders, and benchmark queries—use fixed integer seeds (e.g., `seed=42`).
-
-### Q6: What datasets does the system provide?
-**Answer:** Two reproducible synthetic planar grid networks (`offline_sample_n10` and `offline_sample_full`), and pre-cached OpenStreetMap road networks stored in GraphML format (e.g., Chandigarh, India).
-
-### Q7: Why are external databases like PostgreSQL or Neo4j excluded?
-**Answer:** The project focuses on in-memory graph algorithms and data structures. For metropolitan graphs ($V \le 10^5$), in-memory NetworkX MultiDiGraph structures provide microsecond access latency without database connection overhead or external service dependencies.
-
-### Q8: What are the two main optimization objectives supported?
-**Answer:** Physical distance (minimizing total meters $\sum L(e)$) and estimated travel time (minimizing total traversal seconds $\sum T(e)$).
-
-### Q9: Does the application require an active internet connection to run?
-**Answer:** No. The entire system—routing, simulations, analytics, partitioning, benchmarking, and dashboard UI—operates 100% offline using bundled datasets.
-
-### Q10: How was software quality and correctness verified?
-**Answer:** Through a 260-test automated Pytest suite covering graph invariants, routing correctness, simulation isolation, analytics validity, and dashboard smoke tests, accompanied by Ruff static linting.
+**Project Title:** MetroGraph Analytics: Intelligent Metro Route Optimization and Critical Station Analysis Using Graph Algorithms  
+**Target Level:** BCA / B.Tech / MCA Capstone Examination  
+**Total Questions:** 42 Comprehensive Questions & Answers
 
 ---
 
-## SECTION B: Graph Representation & Traversal (Questions 11–20)
+### Part 1: Graph Theory Fundamentals & Modeling
 
-### Q11: Why did you choose a directed MultiDiGraph rather than a simple directed DiGraph?
-**Answer:** Real-world street networks frequently feature parallel directed edges between identical intersections—such as divided multi-lane highways, service roads, and grade-separated flyovers—which require an edge key $k \in \mathbb{N}_0$ to represent accurately without data loss.
+**Q1: Why is a public transit metro network modeled as a graph?**  
+**A:** A graph $G = (V, E)$ provides an intuitive and mathematically rigorous representation where vertices $V$ represent metro stations, and edges $E$ represent contiguous physical track segments connecting adjacent stations. This abstraction allows transit routing, topological connectivity, and network vulnerability to be analyzed using classical and modern graph algorithms.
 
-### Q12: How are edge weights calculated for the travel time objective?
-**Answer:** $T(e) = \frac{L(e)}{v(e)} = \frac{L(e) \cdot 3.6}{S(e)}$, where $L(e)$ is road length in meters and $S(e)$ is legal speed in km/h. Missing speeds are inferred based on OpenStreetMap highway classifications.
+**Q2: What is a MultiGraph, and why was it chosen over a simple graph for MetroGraph?**  
+**A:** In a simple graph, at most one edge can connect any pair of nodes. In real metro systems, multiple distinct transit lines frequently operate concurrently along the same physical track segment between adjacent stations (e.g., Yellow and Airport Express sharing a corridor, or Blue Line branches). A `networkx.MultiGraph` allows parallel edges between the same two stations, preserving the unique identity, line ID, and attributes of each service.
 
-### Q13: What graph serialization format is used and why?
-**Answer:** GraphML XML format. It preserves node coordinates, directed edge keys, topological attributes, and custom typed metadata across application restarts.
+**Q3: How are parallel multi-edges handled when calculating travel times or distances?**  
+**A:** When performing single-objective routing on station nodes (like Dijkstra for minimum time), parallel edges between stations $u$ and $v$ are resolved deterministically by selecting the edge key with the minimum weight for that attribute (`min(edges.values(), key=lambda e: e[weight_key])`).
 
-### Q14: How does Breadth-First Search (BFS) operate?
-**Answer:** BFS uses a FIFO queue to explore nodes layer-by-layer, determining the minimum topological hop distance from the source to all reachable nodes in $O(|V| + |E|)$ time.
-
-### Q15: Why can't standard BFS find the fastest travel-time route on a road network?
-**Answer:** BFS assumes all edge weights are identical (uniform unit cost). On weighted road networks, a path with fewer road segments can have a significantly longer physical distance or travel time than a multi-segment path.
-
-### Q16: How does Depth-First Search (DFS) detect directed cycles?
-**Answer:** By maintaining a three-state node classification (`UNVISITED`, `VISITING`, `VISITED`). If an edge leads to a node currently in the `VISITING` state, it is a back-edge, confirming the existence of a directed cycle.
-
-### Q17: What is the time and space complexity of BFS and DFS?
-**Answer:** Both run in $O(|V| + |E|)$ time and require $O(|V|)$ auxiliary space for visited sets, queues/stacks, and parent maps.
-
-### Q18: What is a Strongly Connected Component (SCC)?
-**Answer:** A maximal subgraph where every vertex is reachable from every other vertex following directed edge orientations.
-
-### Q19: Why is strong connectivity critical for emergency vehicle routing?
-**Answer:** If an emergency vehicle enters a directed component that cannot reach the hospital node, the destination is unreachable, causing routing failures.
-
-### Q20: How are road network coordinates represented?
-**Answer:** Using the WGS 84 geodetic coordinate reference system (latitude $\phi$ and longitude $\lambda$ in decimal degrees).
+**Q4: What is the difference between a directed and an undirected graph in metro routing?**  
+**A:** In standard subway networks, trains typically operate bidirectionally along twin parallel tracks. Unless express or one-way track constraints exist, modeling the network as an undirected graph accurately represents bidirectional travel while maintaining computational simplicity.
 
 ---
 
-## SECTION C: Shortest Path Routing Algorithms (Questions 21–35)
+### Part 2: Routing Algorithms (BFS & Dijkstra)
 
-### Q21: How does Dijkstra's algorithm work?
-**Answer:** It is a greedy label-setting algorithm. It maintains tentative distances from the source in a min-heap priority queue, iteratively settles the unvisited node with the lowest distance, and relaxes its outgoing edges.
+**Q5: What is the primary objective of Breadth-First Search (BFS) in metro routing?**  
+**A:** BFS finds the unweighted shortest path between source and destination, which directly minimizes the total number of intermediate station stops (hops), regardless of travel time or line transfers.
 
-### Q22: Why does Dijkstra require strictly non-negative edge weights?
-**Answer:** Dijkstra assumes that once a node is popped from the min-heap, its shortest path is permanently finalized. Negative edge weights violate this greedy choice property, requiring label-correcting algorithms like Bellman-Ford.
+**Q6: What is the time and space complexity of BFS?**  
+**A:** Time complexity is $\mathcal{O}(|V| + |E|)$ where $|E|$ counts all multi-edges. Space complexity is $\mathcal{O}(|V|)$ to maintain the FIFO queue, visited set, and predecessor reconstruction mapping.
 
-### Q23: What is the time complexity of Dijkstra using a binary min-heap?
-**Answer:** $O((|E| + |V|) \log |V|)$ time, with $O(|V|)$ auxiliary space.
+**Q7: How does Dijkstra's algorithm differ from BFS?**  
+**A:** While BFS assumes uniform unit edge weights, Dijkstra's algorithm accommodates non-uniform, non-negative edge weights (such as segment travel time in minutes or physical distance in kilometers), utilizing a min-priority queue (min-heap) to greedily settle nodes in ascending order of cumulative cost.
 
-### Q24: How does A* search differ from Dijkstra's algorithm?
-**Answer:** Dijkstra explores outward uniformly in all directions (circular wave), whereas A* uses a heuristic evaluation function $f(u) = g(u) + h(u)$ to bias frontier expansion toward the destination (elliptical search space).
+**Q8: What is the time complexity of Dijkstra's algorithm with a binary min-heap?**  
+**A:** $\mathcal{O}((|V| + |E|) \log |V|)$, where extracting the minimum node takes $\mathcal{O}(\log |V|)$ and edge relaxation takes $\mathcal{O}(\log |V|)$.
 
-### Q25: What does it mean for a heuristic function to be admissible?
-**Answer:** An admissible heuristic never overestimates the true remaining cost to the target: $h(u) \le d^*(u, t)$ for all $u \in V$.
-
-### Q26: What heuristic is used in your A* implementation?
-**Answer:** For distance: spherical Haversine distance $D_{\text{hav}}(u, t)$. For travel time: $D_{\text{hav}}(u, t) / v_{\max}$, where $v_{\max} = 33.33\text{ m/s}$ (120 km/h).
-
-### Q27: Why is your travel-time heuristic guaranteed to be admissible?
-**Answer:** Because no vehicle can legally or physically exceed the maximum speed bound $v_{\max}$. Dividing the straight-line geodesic distance by the maximum possible speed yields an absolute physical lower bound on traversal time.
-
-### Q28: What is heuristic consistency (monotonicity)?
-**Answer:** A heuristic is consistent if $h(u) \le w(u, v) + h(v)$ for every edge $(u, v)$. Consistency implies admissibility and guarantees that nodes are settled at most once.
-
-### Q29: How does Bidirectional Dijkstra work?
-**Answer:** It runs two simultaneous searches: a forward Dijkstra search from the source $s$ on $G$, and a backward Dijkstra search from the target $t$ on the reversed graph $G^{\text{rev}}$.
-
-### Q30: What is the termination condition for Bidirectional Dijkstra?
-**Answer:** Search stops when the sum of the minimum keys in the forward and backward priority queues meets or exceeds the best complete path cost found so far: $\min(d_f) + \min(d_b) \ge \mu$.
-
-### Q31: Does Bidirectional Dijkstra always halve the search runtime?
-**Answer:** No. While theoretical search area decreases from $\pi r^2$ to $2\pi(r/2)^2 = \frac{1}{2}\pi r^2$, maintaining two heaps, reversing directed edges, and tracking meeting nodes introduces constant-factor overhead that can offset savings on small graphs.
-
-### Q32: What is Yen's algorithm?
-**Answer:** An algorithm that finds the $K$ loopless shortest paths between a source and target by iteratively exploring deviations (spur paths) branching off subpaths of previously discovered shortest paths.
-
-### Q33: How does your implementation of Yen's algorithm handle parallel edges?
-**Answer:** During the spur-edge invalidation phase, it temporarily removes specific edge keys $k$ rather than all edges between $u$ and $v$, allowing parallel roads to be evaluated as distinct alternative routes.
-
-### Q34: What is the time complexity of Yen's K-shortest path algorithm?
-**Answer:** $O(K \cdot |V| (|E| + |V| \log |V|))$, because each of the $K$ path iterations runs Dijkstra up to $|V|$ times at different spur nodes.
-
-### Q35: Did all three routing algorithms produce identical path costs in your benchmarks?
-**Answer:** Yes. Across 100% of the benchmark queries, Dijkstra, A*, and Bidirectional Dijkstra returned identical optimal path costs matching NetworkX reference calculations.
+**Q9: Why can Dijkstra's algorithm fail if negative edge weights are present?**  
+**A:** Dijkstra's greedy invariant assumes that once a node is settled, its shortest path distance is finalized. A negative edge weight can retroactively yield a shorter path to an already settled node, violating the greedy invariant. MetroGraph explicitly validates and rejects negative weights during graph construction and routing.
 
 ---
 
-## SECTION D: Simulation & Network Resilience (Questions 36–45)
+### Part 3: Minimum Transfer Optimization (0-1 BFS & State Graphs)
 
-### Q36: How is traffic congestion mathematically simulated?
-**Answer:** By applying a non-negative multiplier $M_s(e) = 1 + C_s(e)$ to baseline travel times: $T_s(e) = T(e) \cdot (1 + C_s(e))$, where $C_s(e) \in \{0.2, 0.5, 1.0, 1.5\}$ based on congestion tier.
+**Q10: Why does minimum-stop routing often fail to provide the best passenger route?**  
+**A:** BFS minimizes stops on station nodes without awareness of metro lines. A route with 10 stops requiring 3 line transfers is often far more exhausting and slower in practice than a single-line route with 11 stops, due to platform walking and waiting times.
 
-### Q37: How are road closures and blocked intersections represented?
-**Answer:** Closed edges and blocked intersections are completely excluded from the active routing subgraph $G_s$. They are never represented as high-weight traversable edges.
+**Q11: How is the routing state expanded to achieve line-aware routing?**  
+**A:** Instead of routing solely over station nodes $u \in V$, the state space is expanded to tuples $(u, \ell) \in V \times L$, representing being physically present at station $u$ on metro line $\ell$. Transitions between adjacent stations on the same line cost 0 transfers, while changing lines at an interchange costs 1 transfer.
 
-### Q38: How does the system guarantee original graph immutability during simulation?
-**Answer:** The simulation engine creates an isolated deep copy or views the graph with active edge exclusion filters, ensuring the baseline GraphML dataset is never mutated.
+**Q12: How does 0-1 BFS work for transfer minimization?**  
+**A:** In a graph where edge weights are restricted to $\{0, 1\}$, a double-ended queue (`collections.deque`) replaces the standard priority queue. When exploring neighbors:
+- Edges of weight 0 (same line continuation) are pushed to the **front** of the deque.
+- Edges of weight 1 (line change transfer) are pushed to the **back** of the deque.
+This maintains monotonic cost ordering and achieves transfer minimization in linear time $\mathcal{O}(|L| \cdot (|V| + |E|))$.
 
-### Q39: What is Betweenness Centrality?
-**Answer:** The fraction of all shortest paths between all pairs of nodes in the graph that pass through a given node: $C_B(v) = \sum_{s \ne v \ne t} \frac{\sigma_{st}(v)}{\sigma_{st}}$. High betweenness indicates a critical traffic bridge or bottleneck.
+**Q13: Why does the initial boarding cost zero transfers?**  
+**A:** Boarding the first train at the origin station is a necessary trip prerequisite, not a transfer. Transfers are only counted when switching between distinct lines during the journey.
 
-### Q40: What is Degree Centrality?
-**Answer:** The normalized count of incident edges connected to a node: $C_D(v) = \frac{\text{deg}(v)}{|V| - 1}$. In directed graphs, in-degree and out-degree reflect local intersection capacity.
+**Q14: What is Lexicographic Dijkstra?**  
+**A:** Lexicographic Dijkstra optimizes multiple objectives sequentially using ordered tuples: $(\text{Transfers}, \text{Travel Time})$. The priority queue orders states primarily by minimum transfers; ties in transfer count are strictly broken by minimum travel time.
 
-### Q41: What is Closeness Centrality?
-**Answer:** The reciprocal of the sum of shortest-path distances from a node to all other reachable nodes: $C_C(u) = \frac{|V|-1}{\sum_{v} d(u, v)}$. Higher values indicate central, accessible junctions.
-
-### Q42: What is PageRank on a road network?
-**Answer:** A stationary probability distribution modeling random walk traversals with a damping factor $\alpha = 0.85$, measuring structural prestige and transit convergence across directed streets.
-
-### Q43: What is the difference between targeted failure and random failure in network resilience?
-**Answer:** Targeted failure removes nodes in descending order of betweenness centrality (attacking vital hubs), whereas random failure removes nodes uniformly at random (modeling random road hazards).
-
-### Q44: What did your resilience percolation experiments reveal?
-**Answer:** Targeted removal of high-betweenness nodes causes rapid fragmentation of the giant connected component with fewer than 15%–20% of hubs removed, whereas random node failure preserves giant component connectivity up to 40%+ node removal.
-
-### Q45: Why is a Minimum Spanning Tree (MST) computed on an undirected projection?
-**Answer:** MST algorithms (Kruskal/Prim) are defined only for undirected connected graphs. Computing an MST on a directed graph requires arborescence algorithms (Edmonds' algorithm). An MST represents baseline infrastructural connectivity, not a directed emergency route.
+**Q15: What is Transfer-Aware Dijkstra?**  
+**A:** Transfer-Aware Dijkstra models platform walking and waiting friction by adding an explicit penalty (e.g., 5.0 minutes) to the edge cost whenever a line change occurs. The objective minimizes:
+$$\text{Total Cost} = \sum \text{Segment In-Transit Time} + (\text{Transfer Count} \times \text{Transfer Penalty})$$
 
 ---
 
-## SECTION E: Partitioning & Spatial Indexing (Questions 46–50)
+### Part 4: Station Importance & Network Centrality
 
-### Q46: What is the goal of graph partitioning in road networks?
-**Answer:** To divide vertex set $V$ into $K$ disjoint subsets $V_1, \dots, V_K$ such that partition sizes are balanced ($\max |V_i| \approx |V| / K$) while minimizing the number of crossing cut-edges.
+**Q16: What is Degree Centrality in transit networks?**  
+**A:** Degree centrality measures the number of direct adjacent stations connected to a given station node, normalized by $|V| - 1$:
+$$C_D(v) = \frac{\text{deg}(v)}{|V| - 1}$$
+It identifies stations serving as local physical convergence points.
 
-### Q47: How does Recursive Geographic Bisection work?
-**Answer:** It recursively bisects node coordinates along alternating spatial median axes (latitude at even depths, longitude at odd depths) until $K$ spatial bounding partitions are created.
+**Q17: Why must MultiGraphs be projected onto simple graphs before computing centrality?**  
+**A:** Standard centrality formulas (like degree and betweenness) assume simple graph topologies. If two stations share 3 parallel lines, treating them as degree 3 would distort neighborhood connectivity. MetroGraph projects the MultiGraph onto an analytical simple graph where adjacent stations share exactly one edge.
 
-### Q48: How does Graph-Aware Partitioning differ from Geographic Partitioning?
-**Answer:** Geographic partitioning only considers $(lat, lon)$ points in space. Graph-aware partitioning expands frontiers along actual topological road connections using multi-source synchronized BFS from dispersed seed nodes.
+**Q18: What is Betweenness Centrality, and what does it measure?**  
+**A:** Betweenness centrality quantifies the fraction of all topological shortest paths in the network that pass through a given station:
+$$C_B(v) = \sum_{s \neq v \neq t} \frac{\sigma_{st}(v)}{\sigma_{st}}$$
+Stations with high betweenness act as crucial bridges connecting disparate sectors of the city.
 
-### Q49: How is the cut-edge ratio defined?
-**Answer:** $\text{Cut-Edge Ratio} = \frac{|\{(u, v, k) \in E \mid \text{partition}(u) \ne \text{partition}(v)\}|}{|E|}$. Lower ratios indicate better partition isolation.
+**Q19: What algorithm is used to compute betweenness centrality?**  
+**A:** Brandes' algorithm, which computes unweighted betweenness centrality across all node pairs in $\mathcal{O}(|V| \cdot |E|)$ time and $\mathcal{O}(|V| + |E|)$ space.
 
-### Q50: How does 3D KD-Tree spatial indexing work for nearest-node lookup?
-**Answer:** Node coordinates $(\phi, \lambda)$ are converted to 3D Cartesian coordinates $(X, Y, Z)$ on Earth's sphere. A `scipy.spatial.cKDTree` is built once in $O(|V| \log |V|)$ time, enabling nearest-intersection queries in $O(\log |V|)$ time compared to $O(|V|)$ linear scans.
+**Q20: What is an Articulation Point (Cut-Vertex)?**  
+**A:** An articulation point is a vertex whose hypothetical removal strictly increases the number of connected components in the graph. In a transit system, an articulation station represents a single point of failure that splits the network into disconnected islands.
 
----
-
-## SECTION F: Benchmarking & Testing (Questions 51–55)
-
-### Q51: Why did you record the 95th percentile (p95) runtime in benchmarks?
-**Answer:** For emergency routing, worst-case latency matters more than average latency. The p95 metric provides an upper bound that accounts for complex search topologies and OS scheduling delays.
-
-### Q52: Why did Dijkstra run faster than A* on your 16-node sample graph?
-**Answer:** On very small graphs ($N \le 16$), the trigonometric floating-point operations in the Haversine heuristic function take more CPU cycles than the few node expansions saved. A* demonstrates clear runtime speedups on graphs with $N \ge 100$.
-
-### Q53: How did you measure memory consumption during algorithm execution?
-**Answer:** Using Python's native `tracemalloc` module, tracking peak memory allocation deltas before search initialization and after path reconstruction.
-
-### Q54: What does the `verify_all.py` script do?
-**Answer:** It executes all 9 individual phase verification test suites sequentially, confirming that foundational representations, routing, simulations, analytics, partitioning, and benchmarking all pass without regression.
-
-### Q55: How many automated tests exist in the project, and what is the pass rate?
-**Answer:** 260 tests, all passing with a 100% pass rate in approximately 14 seconds.
+**Q21: Which algorithm detects articulation points?**  
+**A:** Tarjan's Depth-First Search (DFS) algorithm using discovery times and low-link values in linear time $\mathcal{O}(|V| + |E|)$.
 
 ---
 
-## SECTION G: Streamlit Architecture & System Limitations (Questions 56–65)
+### Part 5: Station Closure & Network Resilience Simulation
 
-### Q56: How is the multi-page Streamlit dashboard structured?
-**Answer:** `app.py` serves as the entry point and state coordinator, while 7 pages in the `pages/` directory provide dedicated views for Network Overview, Traversal, Route Optimizer, Simulation, Analytics, Partitioning, and Benchmarking.
+**Q22: How does MetroGraph ensure that closure simulations do not corrupt the original graph?**  
+**A:** All simulations strictly execute on a deep copy of the graph (`sim_graph = original_graph.copy()`). Node deletions and edge excisions occur exclusively on the isolated copy.
 
-### Q57: How does the application avoid recomputing road networks on every UI interaction?
-**Answer:** By storing loaded graphs, spatial KD-trees, and precomputed centralities in `st.session_state` and utilizing Streamlit's caching decorators.
+**Q23: What happens to track connections when a station is closed?**  
+**A:** When station $v$ is excised (`sim_graph.remove_node(v)`), NetworkX automatically removes all multi-edges incident to $v$. Remaining tracks across the rest of the network remain completely intact.
 
-### Q58: What is a known limitation of your traffic congestion model?
-**Answer:** It is a macroscopic static multiplier model rather than a microscopic vehicle-following simulation (e.g., SUMO or cellular automata) with dynamic queue discharge and shockwave propagation.
+**Q24: How is global network reachability quantified before and after a closure?**  
+**A:** For a network segmented into $k$ connected components of sizes $n_1, n_2, \dots, n_k$, the total reachable station pairs is calculated using the combinatorial formula:
+$$\text{Reachable Station Pairs} = \sum_{i=1}^k \frac{n_i(n_i - 1)}{2}$$
+The reachability ratio is the reachable pairs divided by the maximum possible pairs $\frac{N(N-1)}{2}$ among the $N$ remaining active nodes.
 
-### Q59: Why doesn't the system support dynamic time-dependent routing (TD-Dijkstra)?
-**Answer:** The graph edge weights represent static snapshots. Modeling time-dependent travel times requires time-expanded networks or speed profiles with piecewise-linear FIFO link travel times.
+**Q25: What disruption statuses can occur during detour rerouting?**  
+**A:**
+1. `ENDPOINT_CLOSED`: Origin or destination station was closed.
+2. `ALREADY_UNREACHABLE`: Stations were disconnected prior to the outage.
+3. `UNREACHABLE`: A route existed before, but closure severed all possible connections.
+4. `UNCHANGED`: Optimal route did not traverse the closed station.
+5. `REROUTED`: Original route intersected the closed station; a valid alternative detour was found.
 
-### Q60: Can this system be deployed directly in real municipal emergency command centers?
-**Answer:** No. It lacks integration with live GPS automatic vehicle location (AVL) feeds, emergency 911 dispatch protocols, live traffic cameras, and traffic signal priority controllers.
+---
 
-### Q61: What is the maximum graph size comfortably handled in memory?
-**Answer:** Up to approximately 100,000 nodes and 250,000 edges on a standard 16GB RAM workstation. Beyond that, memory overhead and $O(|V| \cdot |E|)$ betweenness centrality require distributed frameworks.
+### Part 6: System Design, Testing & Benchmarking
 
-### Q62: What is the Balance Ratio in partitioning and what is an ideal value?
-**Answer:** $\text{Balance Ratio} = \frac{\max_p |V_p|}{|V| / K}$. An ideal partition has a balance ratio of $1.0$, indicating perfectly equal distribution of vertices across all $K$ partitions.
+**Q26: Why does MetroGraph use Streamlit?**  
+**A:** Streamlit enables rapid development of reactive, Python-native interactive web applications with built-in caching, session state management, and seamless Plotly integration without requiring JavaScript frameworks.
 
-### Q63: Why are parallel edges essential for road networks?
-**Answer:** Divided highways, service roads, and multi-lane streets often connect the same two intersections but possess different road classes, lanes, and speed limits. Collapsing them into a single edge loses critical routing options.
+**Q27: How does Streamlit caching work in MetroGraph?**  
+**A:** `@st.cache_data` caches serializable tabular data and analytics calculations, while `@st.cache_resource` caches the in-memory NetworkX MultiGraph keyed by dataset fingerprint.
 
-### Q64: What export formats are provided for experimental results?
-**Answer:** CSV format for tabular benchmark metrics and raw query measurements, and JSON manifests containing full experiment metadata and hardware configurations.
+**Q28: How does the application prevent stale results when the dataset is changed?**  
+**A:** In `src/ui/session_state.py`, `invalidate_stale_results()` checks the active dataset fingerprint. If the fingerprint changes, all dependent session state variables (active route results, closure scenarios, comparisons) are reset to `None`.
 
-### Q65: What would be the immediate next step if continuing this research?
-**Answer:** Integrating real-time traffic sensor feeds (e.g., TomTom / HERE APIs), implementing contraction hierarchies for millisecond routing on continental graphs, and adding dynamic traffic signal preemption modeling.
+**Q29: Why is Plotly used without OpenStreetMap (OSM) or Mapbox?**  
+**A:** Plotly enables complete offline visualization using schematic coordinate systems. This eliminates dependencies on external tile servers, API rate limits, and internet connectivity, guaranteeing 100% offline reproducibility.
+
+**Q30: How were benchmark measurements collected?**  
+**A:** Using high-resolution Python timers (`time.perf_counter_ns()`) isolated strictly around algorithmic execution, utilizing 3 warm-up runs followed by 15–20 measured iterations to compute median, mean, and standard deviation.
+
+---
+
+### Part 7: Quick-Fire Technical Questions
+
+**Q31: What is the average degree of a metro graph?**  
+**A:** Typically between 2.0 and 2.5, characteristic of planar, sparse topological networks.
+
+**Q32: Can degree centrality identify network bottlenecks?**  
+**A:** No. A station can have degree 2 (two incident tracks) but bridge two huge suburban regions, giving it massive betweenness centrality despite low degree centrality.
+
+**Q33: What is the Python version constraint for this project?**  
+**A:** Python >= 3.11, < 3.13.
+
+**Q34: What data formats are supported for exporting results?**  
+**A:** CSV (tabular itineraries, metrics, rankings), JSON (structured route and simulation payloads), and GraphML (serialized graphs).
+
+**Q35: What is GraphML?**  
+**A:** An XML-based file format designed for serializing graphs along with node and edge attributes.
+
+**Q36: What is the difference between travel time and modeled journey time?**  
+**A:** Travel time represents pure in-transit physical movement between stations; modeled journey time includes transfer walking and platform waiting penalties.
+
+**Q37: Why does closing Rajiv Chowk not partition the Delhi Metro into disjoint components?**  
+**A:** The Delhi Metro features orbital ring lines (such as the Pink Line and Magenta Line) that provide topological mesh redundancy, allowing trains to route around the central core.
+
+**Q38: What is an isolated station?**  
+**A:** A vertex with degree 0 that has no surviving track connections to any other station.
+
+**Q39: What testing frameworks were used?**  
+**A:** `pytest` for unit, invariant, and integration testing, and `streamlit.testing.v1.AppTest` for headless UI testing.
+
+**Q40: How many unit and integration tests are in the test suite?**  
+**A:** Over 120 automated tests passing with 100% success rate.
+
+**Q41: What tool is used for code formatting and static analysis?**  
+**A:** Ruff, executing zero-error linting and formatting.
+
+**Q42: What is the primary academic takeaway from this project?**  
+**A:** Graph algorithms bridge theoretical computer science and urban infrastructure, demonstrating that line-aware state expansion and structural centrality modeling provide actionable commuter detours and vulnerability insights that unweighted station-hop models fail to capture.

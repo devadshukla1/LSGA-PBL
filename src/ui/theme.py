@@ -1,114 +1,108 @@
-"""Consistent modern dark-slate aesthetic theme and styling tokens for SmartRoute Analytics."""
+"""Design tokens and theme definition for MetroGraph UI."""
 
-from typing import Final
-
-import streamlit as st
-
-COLOR_PALETTE: Final[dict[str, str]] = {
-    "bg_dark": "#0B1120",
-    "card_bg": "#111827",
-    "card_border": "#1E293B",
-    "primary_sky": "#38BDF8",
-    "accent_blue": "#2563EB",
-    "text_primary": "#F8FAFC",
-    "text_secondary": "#94A3B8",
-    "success_green": "#22C55E",
-    "warning_amber": "#F59E0B",
-    "error_red": "#EF4444",
+THEME_COLORS = {
+    "background": "#0B1120",
+    "sidebar": "#111827",
+    "card_bg": "#1E293B",
+    "card_border": "#334155",
+    "primary": "#38BDF8",
+    "primary_hover": "#0EA5E9",
+    "secondary": "#818CF8",
+    "text_main": "#F8FAFC",
+    "text_muted": "#94A3B8",
+    "success": "#22C55E",
+    "warning": "#F59E0B",
+    "error": "#EF4444",
+    "accent": "#818CF8",
 }
 
-CUSTOM_CSS: Final[str] = """
+CUSTOM_CSS = f"""
 <style>
-/* SmartRoute Analytics Dark Theme Styling */
-.main-header-title {
-    font-size: 2.1rem;
-    font-weight: 700;
-    color: #F8FAFC;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.2rem;
-}
+    /* Global container styling */
+    .stApp {{
+        background-color: {THEME_COLORS["background"]};
+        color: {THEME_COLORS["text_main"]};
+    }}
 
-.main-header-subtitle {
-    font-size: 0.95rem;
-    font-weight: 400;
-    color: #94A3B8;
-    margin-bottom: 1rem;
-}
+    /* Card container */
+    .metro-card {{
+        background-color: {THEME_COLORS["card_bg"]};
+        border: 1px solid {THEME_COLORS["card_border"]};
+        border-radius: 8px;
+        padding: 1.1rem;
+        margin-bottom: 0.8rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+    }}
 
-.metric-card-container {
-    background: #111827;
-    border: 1px solid #1E293B;
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin-bottom: 12px;
-}
+    /* Header styling */
+    .metro-title {{
+        color: {THEME_COLORS["primary"]};
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }}
+    .metro-subtitle {{
+        color: {THEME_COLORS["text_muted"]};
+        font-size: 0.95rem;
+        margin-bottom: 1.25rem;
+    }}
 
-.metric-card-label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #94A3B8;
-    margin-bottom: 4px;
-}
+    /* Section headers */
+    .metro-section-title {{
+        color: {THEME_COLORS["text_main"]};
+        font-size: 1.2rem;
+        font-weight: 600;
+        border-bottom: 1px solid {THEME_COLORS["card_border"]};
+        padding-bottom: 0.4rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.8rem;
+    }}
 
-.metric-card-value {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #38BDF8;
-    line-height: 1.2;
-}
+    /* Metric card */
+    .metric-value {{
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: {THEME_COLORS["primary"]};
+        line-height: 1.2;
+    }}
+    .metric-label {{
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: {THEME_COLORS["text_muted"]};
+        margin-bottom: 0.25rem;
+    }}
 
-.metric-card-delta {
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin-top: 4px;
-}
+    /* Badge */
+    .metro-badge {{
+        display: inline-block;
+        padding: 0.25rem 0.65rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        background-color: #1E293B;
+        color: {THEME_COLORS["primary"]};
+        border: 1px solid #38BDF8;
+    }}
 
-.badge-pill {
-    display: inline-block;
-    padding: 2px 8px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border-radius: 9999px;
-    text-transform: uppercase;
-}
+    /* Empty state box */
+    .metro-empty-state {{
+        text-align: center;
+        padding: 2.5rem 1.5rem;
+        border: 1px dashed {THEME_COLORS["card_border"]};
+        border-radius: 8px;
+        background-color: rgba(30, 41, 59, 0.4);
+        margin: 1rem 0;
+    }}
 
-.badge-success {
-    background-color: rgba(34, 197, 94, 0.15);
-    color: #22C55E;
-    border: 1px solid rgba(34, 197, 94, 0.3);
-}
-
-.badge-warning {
-    background-color: rgba(245, 158, 11, 0.15);
-    color: #F59E0B;
-    border: 1px solid rgba(245, 158, 11, 0.3);
-}
-
-.badge-info {
-    background-color: rgba(56, 189, 248, 0.15);
-    color: #38BDF8;
-    border: 1px solid rgba(56, 189, 248, 0.3);
-}
-
-.empty-state-box {
-    background: #111827;
-    border: 1px dashed #334155;
-    border-radius: 8px;
-    padding: 32px 20px;
-    text-align: center;
-    color: #94A3B8;
-}
-
-.section-divider {
-    border-top: 1px solid #1E293B;
-    margin: 20px 0;
-}
+    /* Button enhancements */
+    div.stButton > button:first-child {{
+        border-radius: 6px;
+        font-weight: 600;
+    }}
 </style>
 """
 
 
-def inject_custom_theme() -> None:
-    """Inject custom responsive dark-slate CSS into Streamlit page context."""
-    st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+def apply_theme_css() -> str:
+    """Returns CSS string to inject into Streamlit via st.markdown."""
+    return CUSTOM_CSS

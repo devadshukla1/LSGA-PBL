@@ -1,0 +1,261 @@
+Rank,Station ID,Station Name,Degree,Degree Centrality,Betweenness Centrality,Line Count,Lines Served,Interchange?,Articulation Point?,Component ID
+1,STN065,Hauz Khas,4,0.01544,0.25206,2,"Magenta line, Yellow line",Yes,Yes,1
+2,STN038,Dilli Haat INA,4,0.01544,0.23666,2,"Pink line, Yellow line",Yes,No,1
+3,STN097,Kashmere Gate,5,0.0193,0.23258,3,"Voilet line, Red line, Yellow line",Yes,No,1
+4,STN200,Rajouri Garden,4,0.01544,0.2253,2,"Pink line, Blue line",Yes,No,1
+5,STN092,Kalkaji Mandir,4,0.01544,0.22363,2,"Magenta line, Voilet line",Yes,Yes,1
+6,STN121,Mayur Vihar Phase-1,4,0.01544,0.21382,2,"Blue line, Pink line",Yes,No,1
+7,STN018,Botanical Garden,3,0.01158,0.20663,2,"Magenta line, Blue line",Yes,Yes,1
+8,STN105,Lajpat Nagar,4,0.01544,0.2019,2,"Pink line, Voilet line",Yes,No,1
+9,STN058,Golf Course,2,0.00772,0.18748,1,Blue line,No,Yes,1
+10,STN008,Ashok Park Main,3,0.01158,0.18288,2,"Green line, Green line branch",Yes,Yes,1
+11,STN149,Noida City Center,2,0.00772,0.18132,1,Blue line,No,Yes,1
+12,STN162,Noida Sector 34,2,0.00772,0.17509,1,Blue line,No,Yes,1
+13,STN165,Noida Sector 52,3,0.01158,0.17069,1,Blue line,Yes,Yes,1
+14,STN199,Rajiv Chowk,4,0.01544,0.1688,2,"Yellow line, Blue line",Yes,No,1
+15,STN080,Janak Puri West,3,0.01158,0.16411,2,"Blue line, Magenta line",Yes,Yes,1
+16,STN101,Kirti Nagar,3,0.01158,0.15902,2,"Green line branch, Blue line",Yes,No,1
+17,STN259,Welcome,4,0.01544,0.15618,2,"Pink line, Red line",Yes,Yes,1
+18,STN120,Mayur Vihar Extention,2,0.00772,0.15446,1,Blue line,No,No,1
+19,STN114,Malviya Nagar,2,0.00772,0.14959,1,Yellow line,No,Yes,1
+20,STN145,New Ashok Nagar,2,0.00772,0.14901,1,Blue line,No,No,1
+21,STN260,Yamuna Bank,3,0.01158,0.14786,2,"Blue line branch, Blue line",Yes,No,1
+22,STN159,Noida Sector 15,2,0.00772,0.14388,1,Blue line,No,No,1
+23,STN164,Noida Sector 51,2,0.00772,0.14307,1,Aqua line,No,Yes,1
+24,STN207,Saket,2,0.00772,0.14307,1,Yellow line,No,Yes,1
+25,STN160,Noida Sector 16,2,0.00772,0.13938,1,Blue line,No,No,1
+26,STN020,Central Secretariat,4,0.01544,0.13911,2,"Yellow line, Voilet line",Yes,No,1
+27,STN003,Akshardham,2,0.00772,0.13747,1,Blue line,No,No,1
+28,STN213,Sarojini Nagar,2,0.00772,0.13717,1,Pink line,No,No,1
+29,STN001,AIIMS,2,0.00772,0.13707,1,Yellow line,No,No,1
+30,STN163,Noida Sector 50,2,0.00772,0.13648,1,Aqua line,No,Yes,1
+31,STN192,Qutab Minar,2,0.00772,0.13648,1,Yellow line,No,Yes,1
+32,STN251,Uttam Nagar East,2,0.00772,0.13648,1,Blue line,No,Yes,1
+33,STN161,Noida Sector 18,2,0.00772,0.13573,1,Blue line,No,No,1
+34,STN061,Green Park,2,0.00772,0.13446,1,Yellow line,No,No,1
+35,STN017,Bhikaji Cama Place,2,0.00772,0.13435,1,Pink line,No,No,1
+36,STN214,Satguru Ram Singh Marg,2,0.00772,0.13278,1,Green line branch,No,No,1
+37,STN235,Sir Vishweshwaraiah Moti Bagh,2,0.00772,0.13172,1,Pink line,No,No,1
+38,STN229,Shastri Park,2,0.00772,0.13156,1,Red line,No,No,1
+39,STN023,Chhattarpur,2,0.00772,0.12984,1,Yellow line,No,Yes,1
+40,STN169,Noida Sector 76,2,0.00772,0.12984,1,Aqua line,No,Yes,1
+41,STN190,Punjabi Bagh,2,0.00772,0.12984,1,Green line,No,Yes,1
+42,STN252,Uttam Nagar West,2,0.00772,0.12984,1,Blue line,No,Yes,1
+43,STN040,Durgabai Deshmukh South Campus,2,0.00772,0.12926,1,Pink line,No,No,1
+44,STN033,Delhi Cantt,2,0.00772,0.12763,1,Pink line,No,No,1
+45,STN220,Seelampur,2,0.00772,0.12706,1,Red line,No,No,1
+46,STN139,Naraina Vihar,2,0.00772,0.1269,1,Pink line,No,No,1
+47,STN119,Maya Puri,2,0.00772,0.12652,1,Pink line,No,No,1
+48,STN241,Tagore Garden,2,0.00772,0.12322,1,Blue line,No,No,1
+49,STN059,Govind Puri,2,0.00772,0.12313,1,Voilet line,No,Yes,1
+50,STN140,Nawada,2,0.00772,0.12313,1,Blue line,No,Yes,1
+51,STN150,Noida Sector 101,2,0.00772,0.12313,1,Aqua line,No,Yes,1
+52,STN231,Shivaji Park,2,0.00772,0.12313,1,Green line,No,Yes,1
+53,STN239,Sultanpur,2,0.00772,0.12313,1,Yellow line,No,Yes,1
+54,STN116,Mandi House,4,0.01544,0.12286,2,"Blue line, Voilet line",Yes,No,1
+55,STN201,Ramesh Nagar,2,0.00772,0.12023,1,Blue line,No,No,1
+56,STN128,Moti Nagar,2,0.00772,0.11898,1,Blue line,No,No,1
+57,STN237,Subhash Nagar,2,0.00772,0.11745,1,Blue line,No,No,1
+58,STN236,South Extension,2,0.00772,0.1167,1,Pink line,No,No,1
+59,STN042,Dwarka Mor,2,0.00772,0.11637,1,Blue line,No,Yes,1
+60,STN056,Ghitorni,2,0.00772,0.11637,1,Yellow line,No,Yes,1
+61,STN110,Madipur,2,0.00772,0.11637,1,Green line,No,Yes,1
+62,STN170,Noida Sector 81,2,0.00772,0.11637,1,Aqua line,No,Yes,1
+63,STN172,Okhla,2,0.00772,0.11637,1,Voilet line,No,Yes,1
+64,STN073,Inderlok,3,0.01158,0.1152,2,"Green line, Red line",Yes,No,1
+65,STN183,Patel Chowk,2,0.00772,0.11463,1,Yellow line,No,No,1
+66,STN127,Moolchand,2,0.00772,0.11298,1,Voilet line,No,No,1
+67,STN245,Tilak Nagar,2,0.00772,0.11245,1,Blue line,No,No,1
+68,STN041,Dwarka,3,0.01158,0.11032,2,"Gray line, Blue line",Yes,Yes,1
+69,STN006,Arjan Garh,2,0.00772,0.10955,1,Yellow line,No,Yes,1
+70,STN083,Jasola,2,0.00772,0.10955,1,Voilet line,No,Yes,1
+71,STN134,NSEZ Noida,2,0.00772,0.10955,1,Aqua line,No,Yes,1
+72,STN181,Paschim Vihar (East),2,0.00772,0.10955,1,Green line,No,Yes,1
+73,STN079,Janak Puri East,2,0.00772,0.10901,1,Blue line,No,No,1
+74,STN090,Kailash Colony,2,0.00772,0.10891,1,Voilet line,No,No,1
+75,STN246,Tis Hazari,2,0.00772,0.1085,1,Red line,No,No,1
+76,STN143,Nehru Place,2,0.00772,0.1069,1,Voilet line,No,No,1
+77,STN178,Panchsheel Park,2,0.00772,0.10603,1,Magenta line,No,No,1
+78,STN189,Pul Bangash,2,0.00772,0.10547,1,Red line,No,No,1
+79,STN240,Supreme Court (Pragati Maidan),2,0.00772,0.10304,1,Blue line,No,No,1
+80,STN187,Pratap Nagar,2,0.00772,0.10281,1,Red line,No,No,1
+81,STN062,Guru Dronacharya,2,0.00772,0.10266,1,Yellow line,No,Yes,1
+82,STN171,Noida Sector 83,2,0.00772,0.10266,1,Aqua line,No,Yes,1
+83,STN182,Paschim Vihar (West),2,0.00772,0.10266,1,Green line,No,Yes,1
+84,STN212,Sarita Vihar,2,0.00772,0.10266,1,Voilet line,No,Yes,1
+85,STN024,Chirag Delhi,2,0.00772,0.10239,1,Magenta line,No,No,1
+86,STN142,Nehru Enclave,2,0.00772,0.10127,1,Magenta line,No,No,1
+87,STN174,Okhla NSIC,2,0.00772,0.1012,1,Magenta line,No,No,1
+88,STN228,Shastri Nagar,2,0.00772,0.10042,1,Red line,No,No,1
+89,STN060,Greater Kailash,2,0.00772,0.10035,1,Magenta line,No,No,1
+90,STN074,Indraprastha,2,0.00772,0.10025,1,Blue line,No,No,1
+91,STN070,IIT Delhi,2,0.00772,0.09901,1,Magenta line,No,No,1
+92,STN234,Sikandarpur,4,0.01544,0.09736,2,"Rapid Metro, Yellow line",Yes,Yes,1
+93,STN238,Sukhdev Vihar,2,0.00772,0.09576,1,Magenta line,No,No,1
+94,STN125,Mohan Estate,2,0.00772,0.09572,1,Voilet line,No,Yes,1
+95,STN151,Noida Sector 137,2,0.00772,0.09572,1,Aqua line,No,Yes,1
+96,STN185,Peera Garhi,2,0.00772,0.09572,1,Green line,No,Yes,1
+97,STN146,New Delhi,2,0.00772,0.09368,1,Yellow line,No,No,1
+98,STN256,Vinobapuri,2,0.00772,0.09353,1,Pink line,No,No,1
+99,STN194,RK Puram,2,0.00772,0.09323,1,Magenta line,No,No,1
+100,STN022,Chawri Bazar,2,0.00772,0.09079,1,Yellow line,No,No,1
+101,STN009,Ashram,2,0.00772,0.09076,1,Pink line,No,No,1
+102,STN075,JAMIA MILLIA ISLAMIA,2,0.00772,0.09058,1,Magenta line,No,No,1
+103,STN211,Sarai Kale Khan Hazrat Nizamuddin,2,0.00772,0.08983,1,Pink line,No,No,1
+104,STN021,Chandni Chowk,2,0.00772,0.08914,1,Yellow line,No,No,1
+105,STN144,Netaji Subash Place,4,0.01544,0.08891,2,"Pink line, Red line",Yes,Yes,1
+106,STN132,Munirka,2,0.00772,0.08885,1,Magenta line,No,No,1
+107,STN047,Dwarka Sector 14,2,0.00772,0.08871,1,Blue line,No,Yes,1
+108,STN152,Noida Sector 142,2,0.00772,0.08871,1,Aqua line,No,Yes,1
+109,STN248,Tughlakabad,2,0.00772,0.08871,1,Voilet line,No,Yes,1
+110,STN250,Udyog Nagar,2,0.00772,0.08871,1,Green line,No,Yes,1
+111,STN175,Okhla Vihar,2,0.00772,0.08651,1,Magenta line,No,No,1
+112,STN254,Vasant Vihar,2,0.00772,0.08594,1,Magenta line,No,No,1
+113,STN173,Okhla Bird Sanctuary,2,0.00772,0.08385,1,Magenta line,No,No,1
+114,STN084,Jasola Vihar Shaheen Bagh,2,0.00772,0.08374,1,Magenta line,No,No,1
+115,STN227,Shankar Vihar,2,0.00772,0.08322,1,Magenta line,No,No,1
+116,STN091,Kalindi Kunj,2,0.00772,0.08281,1,Magenta line,No,No,1
+117,STN011,Badarpur Border,2,0.00772,0.08165,1,Voilet line,No,Yes,1
+118,STN046,Dwarka Sector 13,2,0.00772,0.08165,1,Blue line,No,Yes,1
+119,STN111,Maharaja Surajmal Stadium,2,0.00772,0.08165,1,Green line,No,Yes,1
+120,STN153,Noida Sector 143,2,0.00772,0.08165,1,Aqua line,No,Yes,1
+121,STN222,Shahdara,2,0.00772,0.08165,1,Red line,No,Yes,1
+122,STN242,Terminal 1 IGI Airport,2,0.00772,0.08068,1,Magenta line,No,No,1
+123,STN206,Sadar Bazaar Cantonment,2,0.00772,0.07863,1,Magenta line,No,No,1
+124,STN177,Palam,2,0.00772,0.07741,1,Magenta line,No,No,1
+125,STN031,Dashrath Puri,2,0.00772,0.07683,1,Magenta line,No,No,1
+126,STN030,Dabri Mor - Janakpuri South,2,0.00772,0.07676,1,Magenta line,No,No,1
+127,STN045,Dwarka Sector 12,2,0.00772,0.07453,1,Blue line,No,Yes,1
+128,STN117,Mansarovar Park,2,0.00772,0.07453,1,Red line,No,Yes,1
+129,STN137,Nangloi,2,0.00772,0.07453,1,Green line,No,Yes,1
+130,STN154,Noida Sector 144,2,0.00772,0.07453,1,Aqua line,No,Yes,1
+131,STN210,Sarai,2,0.00772,0.07453,1,Voilet line,No,Yes,1
+132,STN193,R K Ashram Marg,2,0.00772,0.07317,1,Blue line,No,No,1
+133,STN086,Jhandewalan,2,0.00772,0.06985,1,Blue line,No,No,1
+134,STN089,Jor Bagh,2,0.00772,0.06954,1,Yellow line,No,No,1
+135,STN081,Jangpura,2,0.00772,0.06792,1,Voilet line,No,No,1
+136,STN044,Dwarka Sector 11,2,0.00772,0.06734,1,Blue line,No,Yes,1
+137,STN087,Jhil Mil,2,0.00772,0.06734,1,Red line,No,Yes,1
+138,STN133,N.H.P.C. Chowk,2,0.00772,0.06734,1,Voilet line,No,Yes,1
+139,STN138,Nangloi Railway Station,2,0.00772,0.06734,1,Green line,No,Yes,1
+140,STN155,Noida Sector 145,2,0.00772,0.06734,1,Aqua line,No,Yes,1
+141,STN010,Azadpur,4,0.01544,0.06727,2,"Pink line, Yellow line",Yes,Yes,1
+142,STN249,Udyog Bhawan,2,0.00772,0.06723,1,Yellow line,No,No,1
+143,STN108,Lok Kalyan Marg,2,0.00772,0.06716,1,Yellow line,No,No,1
+144,STN096,Karol Bagh,2,0.00772,0.06688,1,Blue line,No,No,1
+145,STN051,ESI BASAI DARAPUR,2,0.00772,0.06678,1,Pink line,No,No,1
+146,STN085,Jawaharlal Nehru Stadium,2,0.00772,0.06587,1,Voilet line,No,No,1
+147,STN100,Khan Market,2,0.00772,0.06565,1,Voilet line,No,No,1
+148,STN072,ITO,2,0.00772,0.0656,1,Voilet line,No,No,1
+149,STN198,Rajendra Place,2,0.00772,0.06428,1,Blue line,No,No,1
+150,STN191,Punjabi Bagh West,2,0.00772,0.06343,1,Pink line,No,No,1
+151,STN034,Delhi Gate,2,0.00772,0.06291,1,Voilet line,No,No,1
+152,STN094,Karkar Duma,3,0.01158,0.06212,2,"Blue line branch, Pink line",Yes,No,1
+153,STN184,Patel Nagar,2,0.00772,0.06185,1,Blue line,No,No,1
+154,STN078,Jama Masjid,2,0.00772,0.06143,1,Voilet line,No,No,1
+155,STN225,Shakurpur,2,0.00772,0.0611,1,Pink line,No,No,1
+156,STN106,Lal Quila,2,0.00772,0.06097,1,Voilet line,No,No,1
+157,STN221,Shadipur,2,0.00772,0.06086,1,Blue line,No,No,1
+158,STN039,Dilshad Garden,2,0.00772,0.0601,1,Red line,No,Yes,1
+159,STN043,Dwarka Sector 10,2,0.00772,0.0601,1,Blue line,No,Yes,1
+160,STN123,Mewala Maharajpur,2,0.00772,0.0601,1,Voilet line,No,Yes,1
+161,STN156,Noida Sector 146,2,0.00772,0.0601,1,Aqua line,No,Yes,1
+162,STN197,Rajdhani Park,2,0.00772,0.0601,1,Green line,No,Yes,1
+163,STN052,East Azad Nagar,2,0.00772,0.05849,1,Pink line,No,No,1
+164,STN095,Karkarduma Court,2,0.00772,0.05796,1,Pink line,No,No,1
+165,STN104,Krishna Nagar,2,0.00772,0.05741,1,Pink line,No,No,1
+166,STN025,Civil Lines,2,0.00772,0.05702,1,Yellow line,No,No,1
+167,STN050,Dwarka Sector 9,2,0.00772,0.0528,1,Blue line,No,Yes,1
+168,STN130,Mundka,2,0.00772,0.0528,1,Green line,No,Yes,1
+169,STN157,Noida Sector 147,2,0.00772,0.0528,1,Aqua line,No,Yes,1
+170,STN215,Sector 28 Faridabad,2,0.00772,0.0528,1,Voilet line,No,Yes,1
+171,STN223,Shaheed Nagar,2,0.00772,0.0528,1,Red line,No,Yes,1
+172,STN255,Vidhan Sabha,2,0.00772,0.05265,1,Yellow line,No,No,1
+173,STN107,Laxmi Nagar,2,0.00772,0.05255,1,Blue line branch,No,No,1
+174,STN258,Vishwavidyalaya,2,0.00772,0.0488,1,Yellow line,No,No,1
+175,STN148,Nirman Vihar,2,0.00772,0.04813,1,Blue line branch,No,No,1
+176,STN226,Shalimar Bagh,2,0.00772,0.0462,1,Pink line,No,No,1
+177,STN063,Guru Tegh Bahadur Nagar,2,0.00772,0.04582,1,Yellow line,No,No,1
+178,STN012,Badkal Mor,2,0.00772,0.04543,1,Voilet line,No,Yes,1
+179,STN049,Dwarka Sector 8,2,0.00772,0.04543,1,Blue line,No,Yes,1
+180,STN131,Mundka Industrial Area (MIA),2,0.00772,0.04543,1,Green line,No,Yes,1
+181,STN158,Noida Sector 148,2,0.00772,0.04543,1,Aqua line,No,Yes,1
+182,STN195,Raj Bagh,2,0.00772,0.04543,1,Red line,No,Yes,1
+183,STN188,Preet Vihar,2,0.00772,0.04529,1,Blue line branch,No,No,1
+184,STN014,Barakhamba,2,0.00772,0.04391,1,Blue line,No,No,1
+185,STN124,Model Town,2,0.00772,0.04382,1,Yellow line,No,No,1
+186,STN048,Dwarka Sector 21,2,0.00772,0.03801,2,"Blue line, Orange line",Yes,Yes,1
+187,STN055,Ghevra Metro station,2,0.00772,0.03801,1,Green line,No,Yes,1
+188,STN102,Knowledge Park II,2,0.00772,0.03801,1,Aqua line,No,Yes,1
+189,STN113,Major Mohit Sharma,2,0.00772,0.03801,1,Red line,No,Yes,1
+190,STN176,Old Faridabad,2,0.00772,0.03801,1,Voilet line,No,Yes,1
+191,STN122,Mayur Vihar Pocket I,2,0.00772,0.03156,1,Pink line,No,No,1
+192,STN002,Adarsh Nagar,2,0.00772,0.03053,1,Yellow line,No,Yes,1
+193,STN027,DLF Phase 1,2,0.00772,0.03053,1,Rapid Metro,No,Yes,1
+194,STN028,DLF Phase 2,2,0.00772,0.03053,1,Rapid Metro,No,Yes,1
+195,STN069,IGI Airport,2,0.00772,0.03053,1,Orange line,No,Yes,1
+196,STN076,Jaffrabad,2,0.00772,0.03053,1,Pink line,No,Yes,1
+197,STN103,Kohat Enclave,2,0.00772,0.03053,1,Red line,No,Yes,1
+198,STN141,Neelam Chowk Ajronda,2,0.00772,0.03053,1,Voilet line,No,Yes,1
+199,STN180,Pari Chowk Greater Noida,2,0.00772,0.03053,1,Aqua line,No,Yes,1
+200,STN233,Shyam park,2,0.00772,0.03053,1,Red line,No,Yes,1
+201,STN244,Tikri Kalan,2,0.00772,0.03053,1,Green line,No,Yes,1
+202,STN093,Kanhaiya Nagar,2,0.00772,0.02939,1,Red line,No,No,1
+203,STN099,Keshav Puram,2,0.00772,0.02882,1,Red line,No,No,1
+204,STN247,Trilokpuri Sanjay Lake,2,0.00772,0.02623,1,Pink line,No,No,1
+205,STN005,Anand Vihar,3,0.01158,0.02525,2,"Blue line branch, Pink line",Yes,Yes,1
+206,STN004,Alpha 1 Greater Noida,2,0.00772,0.02299,1,Aqua line,No,Yes,1
+207,STN015,Bata Chowk,2,0.00772,0.02299,1,Voilet line,No,Yes,1
+208,STN016,Belvedere Towers,2,0.00772,0.02299,1,Rapid Metro,No,Yes,1
+209,STN032,Delhi Aerocity,2,0.00772,0.02299,1,Orange line,No,Yes,1
+210,STN077,Jahangirpuri,2,0.00772,0.02299,1,Yellow line,No,Yes,1
+211,STN118,Maujpur,2,0.00772,0.02299,1,Pink line,No,Yes,1
+212,STN126,Mohan Nagar,2,0.00772,0.02299,1,Red line,No,Yes,1
+213,STN186,Pitam Pura,2,0.00772,0.02299,1,Red line,No,Yes,1
+214,STN216,Sector 42-43,2,0.00772,0.02299,1,Rapid Metro,No,Yes,1
+215,STN243,Tikri Border,2,0.00772,0.02299,1,Green line,No,Yes,1
+216,STN257,Vinod Nagar East,2,0.00772,0.02241,1,Pink line,No,No,1
+217,STN082,Janpath,2,0.00772,0.02216,1,Voilet line,No,No,1
+218,STN115,Mandawali - West Vinod Nagar,2,0.00772,0.01962,1,Pink line,No,No,1
+219,STN071,IP Extension,2,0.00772,0.01764,1,Pink line,No,No,1
+220,STN007,Arthala,2,0.00772,0.01538,1,Red line,No,Yes,1
+221,STN026,Cyber City,2,0.00772,0.01538,1,Rapid Metro,No,Yes,1
+222,STN035,Delta 1 Greater Noida,2,0.00772,0.01538,1,Aqua line,No,Yes,1
+223,STN037,Dhaula Kuan,2,0.00772,0.01538,1,Orange line,No,Yes,1
+224,STN053,Escorts Mujesar,2,0.00772,0.01538,1,Voilet line,No,Yes,1
+225,STN057,Gokulpuri,2,0.00772,0.01538,1,Pink line,No,Yes,1
+226,STN064,Haiderpur Badli Mor,2,0.00772,0.01538,1,Yellow line,No,Yes,1
+227,STN109,MG Road,2,0.00772,0.01538,1,Yellow line,No,Yes,1
+228,STN167,Noida Sector 61,2,0.00772,0.01538,1,Blue line,No,Yes,1
+229,STN179,Pandit Shree Ram Sharma,2,0.00772,0.01538,1,Green line,No,Yes,1
+230,STN203,Rohini East,2,0.00772,0.01538,1,Red line,No,Yes,1
+231,STN217,Sector 53-54,2,0.00772,0.01538,1,Rapid Metro,No,Yes,1
+232,STN013,Bahdurgarh City,2,0.00772,0.00772,1,Green line,No,Yes,1
+233,STN054,GNIDA Office,2,0.00772,0.00772,1,Aqua line,No,Yes,1
+234,STN066,Hindon River,2,0.00772,0.00772,1,Red line,No,Yes,1
+235,STN068,IFFCO Chowk,2,0.00772,0.00772,1,Yellow line,No,Yes,1
+236,STN088,Johri Enclave,2,0.00772,0.00772,1,Pink line,No,Yes,1
+237,STN098,Kaushambi,2,0.00772,0.00772,1,Blue line branch,No,Yes,1
+238,STN129,Moulsari Avenue,2,0.00772,0.00772,1,Rapid Metro,No,Yes,1
+239,STN136,Nangli,2,0.00772,0.00772,1,Gray line,No,Yes,1
+240,STN166,Noida Sector 59,2,0.00772,0.00772,1,Blue line,No,Yes,1
+241,STN204,Rohini Sector 18-19,2,0.00772,0.00772,1,Yellow line,No,Yes,1
+242,STN205,Rohini West,2,0.00772,0.00772,1,Red line,No,Yes,1
+243,STN209,Sant Surdas - Sihi,2,0.00772,0.00772,1,Voilet line,No,Yes,1
+244,STN218,Sector 54 Chowk,2,0.00772,0.00772,1,Rapid Metro,No,Yes,1
+245,STN232,Shivaji Stadium,2,0.00772,0.00772,1,Orange line,No,Yes,1
+246,STN019,Brigadier Hoshiar Singh,1,0.00386,0.0,1,Green line,No,No,1
+247,STN029,DLF Phase 3,1,0.00386,0.0,1,Rapid Metro,No,No,1
+248,STN036,Depot Greater Noida,1,0.00386,0.0,1,Aqua line,No,No,1
+249,STN067,Huda City Centre,1,0.00386,0.0,1,Yellow line,No,No,1
+250,STN112,Majlis Park,1,0.00386,0.0,1,Pink line,No,No,1
+251,STN135,Najafgarh,1,0.00386,0.0,1,Gray line,No,No,1
+252,STN147,New Delhi-Airport Express,1,0.00386,0.0,1,Orange line,No,No,1
+253,STN168,Noida Sector 62,1,0.00386,0.0,1,Blue line,No,No,1
+254,STN196,Raja Nahar Singh,1,0.00386,0.0,1,Voilet line,No,No,1
+255,STN202,Rithala(last station),1,0.00386,0.0,1,Red line,No,No,1
+256,STN208,Samaypur Badli,1,0.00386,0.0,1,Yellow line,No,No,1
+257,STN219,Sector 55-66,1,0.00386,0.0,1,Rapid Metro,No,No,1
+258,STN224,Shaheed Sthal,1,0.00386,0.0,1,Red line,No,No,1
+259,STN230,Shiv Vihar,1,0.00386,0.0,1,Pink line,No,No,1
+260,STN253,Vaishali,1,0.00386,0.0,1,Blue line branch,No,No,1

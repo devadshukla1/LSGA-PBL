@@ -1,58 +1,52 @@
-"""Global sidebar navigation and dataset status indicator for SmartRoute Analytics."""
+"""Sidebar dataset status and branding panel for MetroGraph Analytics."""
 
-import networkx as nx
 import streamlit as st
 
-from config import APP_NAME
-from src.ui.formatting import format_percentage
-from src.ui.state import get_active_dataset_id
+from src.core.settings import (
+    APP_ICON,
+    APP_NAME,
+    APP_TITLE,
+    METRO_DATA_DIR,
+    SAMPLE_DATA_DIR,
+)
+from src.data.loader import is_metro_dataset_available
 
 
-def render_app_sidebar(
-    graph: nx.MultiDiGraph | None = None,
-    dataset_name: str | None = None,
-    origin_info: str | None = None,
-) -> None:
-    """Render the standard global sidebar showing active dataset status and demo flow."""
+def render_sidebar() -> str:
+    """Renders the clean sidebar with branding and active Delhi Metro dataset status.
+
+    Returns:
+        The active dataset identifier: always 'delhi_metro' in production.
+    """
+    real_available = is_metro_dataset_available()
+    dataset_mode = "delhi_metro"
+    st.session_state["selected_dataset_mode"] = dataset_mode
+
     with st.sidebar:
-        st.markdown(f"### 🚦 {APP_NAME}")
-        st.caption("Large-Scale Graph Analysis · Final Academic Project")
+        st.markdown(f"### {APP_ICON} {APP_NAME}")
+        st.caption(APP_TITLE)
         st.divider()
 
-        # Active Dataset Summary
-        active_id = get_active_dataset_id()
-        st.markdown("**Active Road Network**")
-        disp_name = dataset_name or active_id.replace("_", " ").title()
-        st.markdown(f"📁 **{disp_name}**")
-        if origin_info:
-            st.caption(origin_info)
+        st.markdown("#### 📂 Active Dataset")
+        st.markdown("**Delhi Metro Network (Real NCR)**")
 
-        if graph is not None:
-            n_nodes = graph.number_of_nodes()
-            n_edges = graph.number_of_edges()
-            c1, c2 = st.columns(2)
-            c1.metric("Junctions", f"{n_nodes:,}")
-            c2.metric("Roads", f"{n_edges:,}")
-
-            density = n_edges / (n_nodes * (n_nodes - 1)) if n_nodes > 1 else 0.0
-            st.caption(f"Network density: {format_percentage(density, decimals=3)}")
+        if real_available:
+            st.success("🟢 Delhi Metro: Loaded & Verified")
+            st.caption("260 Stations • 13 Metro Lines • 25 Interchanges")
         else:
-            st.caption("Select a dataset in the active page to inspect network structure.")
+            st.error("🔴 Delhi Metro Dataset Unavailable")
+            st.caption("Missing or corrupted data files in data/metro/")
 
-        st.divider()
+    return dataset_mode
 
-        # College Project Demonstration Sequence Guide
-        with st.expander("📋 Demonstration Workflow", expanded=False):
-            st.markdown(
-                """
-                **Suggested Review Order:**
-                1. **Overview**: Network topologies & structure
-                2. **Route Optimizer**: Shortest path vs time
-                3. **Traffic Simulator**: Congestion & disruptions
-                4. **Graph Analytics**: Centrality & resilience
-                5. **Partitioning**: Geographic vs graph-aware
-                6. **Algorithm Lab**: Runtime, scaling & optimality
-                7. **Results & Export**: Historical runs & CSV exports
-                """
-            )
-            st.caption("Reproducible offline execution supported.")
+
+def get_active_dataset_directory(dataset_mode: str = "delhi_metro"):
+    """Resolves data directory path for Delhi Metro production dataset.
+
+    Falls back to SAMPLE_DATA_DIR only if automated test suites pass an explicit 'synthetic' mode.
+    """
+    if dataset_mode == "delhi_metro":
+        if is_metro_dataset_available():
+            return METRO_DATA_DIR
+        raise FileNotFoundError("Delhi Metro dataset is missing or unavailable in data/metro/")
+    return SAMPLE_DATA_DIR

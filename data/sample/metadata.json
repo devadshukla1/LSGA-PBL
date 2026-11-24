@@ -1,0 +1,16 @@
+{
+  "dataset_name": "Synthetic Metro Sample Network",
+  "source_organization": "MetroGraph Academic Project Team",
+  "original_url": "offline://data/sample",
+  "access_date": "2026-11-20",
+  "license": "MIT Open Source Academic License",
+  "version": "1.0.0",
+  "geographic_coverage": "Synthetic Schematic Grid (Local Coordinates)",
+  "station_count": 12,
+  "line_count": 3,
+  "connection_count": 14,
+  "station_line_memberships": 17,
+  "fingerprint": "synthetic-sample-v1",
+  "assumed_speed_kmph": 35.0,
+  "data_limitations": "Synthetic fictional coordinates for testing routing and multi-line parallel connections."
+}

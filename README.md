@@ -1,187 +1,171 @@
-# SmartRoute Analytics: Smart City Traffic & Emergency Route Optimizer
+# MetroGraph Analytics
 
-**Academic Project Title:** Intelligent Emergency Vehicle Routing and Urban Road Network Resilience Analysis Using Large-Scale Graph Algorithms  
-**Course / Subject:** Large-Scale Graph Analysis (LSGA PBL — Modules 1, 2, 3, 4, and 5)  
-**Academic Session:** 2026–2027  
-**Platform:** Python 3.11 / Streamlit Interactive Web Application  
-**Execution Mode:** 100% Offline, Deterministic, Zero Cloud Reliance  
+[![Python Version](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Tests Passing](https://img.shields.io/badge/pytest-120%2B%20passed-brightgreen.svg)]()
+[![Code Style: Ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
+[![Zero OSMnx Guarantee](https://img.shields.io/badge/maps-100%25%20offline%20schematic-green.svg)]()
 
----
+> **Academic Capstone Title:** *Intelligent Metro Route Optimization and Critical Station Analysis Using Graph Algorithms*
 
-## 1. Project Abstract
-
-SmartRoute Analytics is an academic graph analytics, optimization, and simulation platform designed to evaluate emergency vehicle routing and urban road network resilience on real-world and synthetic street networks. Road networks are modeled as directed multigraphs $G = (V, E)$ using NetworkX MultiDiGraph structures, preserving intersection coordinates, one-way restrictions, physical speed limits, and parallel road links with unique edge keys.
-
-The platform implements and evaluates three fundamental single-source shortest-path algorithms: manual Dijkstra's algorithm, goal-directed A* search with an admissible spherical Haversine heuristic, and manual Bidirectional Dijkstra with dual-frontier search. For emergency logistics, Yen's algorithm is implemented to compute $K$-shortest loopless alternative routes. The system deterministically simulates traffic congestion across five multiplier tiers (1.0x to 2.5x) and evaluates emergency road closures and blocked intersections by inducing active subgraphs while maintaining the strict immutability of the base road network.
-
-To assess structural vulnerability, the system computes network centralities (Betweenness, Degree, Closeness, and PageRank) and performs site percolation experiments comparing targeted attacks on high-betweenness hubs against uniform random node failures. Furthermore, it implements Recursive Geographic Bisection and Graph-Aware Region Growing partitioning alongside a 3D Earth-Centered Earth-Fixed (ECEF) KD-Tree spatial index that delivers a 25x–52x query speedup over linear brute-force scanning. The platform is delivered via an interactive Streamlit dashboard backed by 260 automated Pytest test cases passing with zero failures.
+MetroGraph Analytics is an interactive transit network modeling, multi-objective route optimization, structural centrality analysis, and network resilience simulation platform built with Python, NetworkX, Plotly, and Streamlit.
 
 ---
 
-## 2. Key Features
+## 🚇 Project Highlights & Key Features
 
-- **Directed MultiDiGraph Representation:** Preserves one-way roads and parallel carriageways using edge keys $k \in \mathbb{N}_0$.
-- **Shortest-Path Optimization:** Custom manual implementations of Dijkstra, A*, and Bidirectional Dijkstra.
-- **Provably Admissible Heuristics:** Spherical Haversine distance divided by global maximum speed $v_{\max}$ guarantees optimal A* path discovery.
-- **Yen's K-Shortest Loopless Paths:** Discovers top alternative evacuation corridors with parallel edge awareness.
-- **Deterministic Traffic Simulation:** Reproducible congestion multipliers (1.0x to 2.5x) and incident closures with guaranteed graph immutability.
-- **Topological Centrality Analysis:** Identifies critical bottleneck bridges using Brandes' betweenness centrality.
-- **Network Resilience Percolation:** Quantifies giant component degradation under targeted hub attacks versus random failures.
-- **Graph Partitioning & Spatial Indexing:** Recursive Geographic Bisection, Graph-Aware Region Growing, and $O(\log V)$ 3D ECEF KD-Tree nearest-node queries.
-- **Automated Benchmarking Suite:** Measures runtime latency, peak memory allocation (`tracemalloc`), and explored node counts with 100% ground-truth validation against NetworkX.
-- **100% Offline Operation:** Bundles pre-cached GraphML road networks and synthetic grid generators with zero internet requirement.
-
----
-
-## 3. Technology Stack
-
-- **Core Language & Runtime:** Python 3.11.16
-- **Graph Modeling & Algorithms:** `networkx>=3.2`, `osmnx>=1.9.0`
-- **Spatial Indexing & Math:** `scipy>=1.12.0`, `numpy>=1.26.4`
-- **Interactive UI & Mapping:** `streamlit>=1.32.0`, `pydeck>=0.8.0`
-- **Data Serialization:** GraphML, CSV, JSON
-- **Testing & Code Quality:** `pytest>=8.0.0`, `ruff>=0.3.0`
-
----
-
-## 4. Repository & Directory Structure
-
-```text
-LSGA PBL/
-├── app.py                       <- Streamlit application entry point & dataset manager
-├── config.py                    <- Global settings, paths, and speed parameters
-├── requirements.txt             <- Pinned Python dependencies
-├── pyproject.toml               <- Project build and tool configurations
-│
-├── pages/                       <- Streamlit Multi-Page Dashboard Views
-│   ├── 1_Network_Overview.py    <- Road network topology & PyDeck visualizer
-│   ├── 2_Traversal_Lab.py       <- Layer-by-layer BFS & cycle-detecting DFS
-│   ├── 3_Route_Optimizer.py     <- Dijkstra, A*, Bidirectional & Yen's routing
-│   ├── 4_Traffic_Simulation.py  <- Congestion levels, incident closures & rerouting
-│   ├── 5_Analytics_Studio.py    <- Centrality rankings, percolation & MSF
-│   ├── 6_Partitioning_Lab.py    <- Spatial partitioning & 3D KD-Tree lookup
-│   └── 7_Benchmarking_Suite.py  <- Automated benchmarking & artifact export
-│
-├── src/                         <- Modular Core Implementation
-│   ├── algorithms/              <- Custom Dijkstra, A*, Bidirectional Dijkstra, BFS, DFS
-│   ├── analytics/               <- Centrality, connectivity, percolation, MST
-│   ├── benchmarks/              <- Query generators, benchmark runner, statistics
-│   ├── graph/                   <- OSMnx loader, GraphML storage, validation, sampler
-│   ├── indexing/                <- 3D ECEF KD-Tree spatial index
-│   ├── partitioning/            <- Geographic bisection, graph-aware region growing
-│   ├── routing/                 <- RoutingService & Yen's alternative paths
-│   ├── simulation/              <- Scenario builder & active subgraph engine
-│   ├── ui/                      <- Reusable Streamlit components & styling
-│   └── visualization/           <- PyDeck map builders & Altair chart generators
-│
-├── data/                        <- Data Cache & Offline Datasets
-│   ├── cache/                   <- Pre-cached GraphML networks (Chandigarh Core)
-│   └── samples/                 <- Offline synthetic grid graphs
-│
-├── docs/                        <- Comprehensive Academic & Technical Documentation
-│   ├── installation_guide.md    <- Step-by-step Windows setup instructions
-│   ├── user_manual.md           <- Dashboard operational manual
-│   ├── system_architecture.md   <- Multi-tier architecture & data flows
-│   ├── mathematical_model.md    <- Formal graph models & heuristic proofs
-│   ├── algorithms_explained.md  <- Mechanics, data structures & pseudocode
-│   ├── algorithm_complexity.md  <- Asymptotic time and space complexity table
-│   ├── syllabus_mapping.md      <- Modules 1–5 curriculum alignment matrix
-│   ├── experimental_methodology.md <- Benchmarking protocols & instrumentation
-│   ├── experimental_results.md  <- Measured runtime, node & memory findings
-│   ├── project_report.md        <- Formal academic project report
-│   ├── viva_questions.md        <- 65-question viva examination question bank
-│   ├── demo_walkthrough.md      <- 10-minute college viva demonstration script
-│   ├── presentation_outline.md  <- 15-slide academic presentation outline
-│   ├── known_limitations.md     <- Architectural & domain constraints disclosure
-│   ├── future_scope.md          <- Realistic post-academic research horizons
-│   └── final_verification.md    <- Final readiness certification
-│
-├── results/                     <- Experimental Output & QA Artifacts
-│   ├── benchmarks/              <- Exported raw CSVs, summary tables & manifests
-│   ├── final/                   <- Official benchmark summary & manifest
-│   └── qa/                      <- JUnit XML, test reports & performance profile CSV
-│
-├── scripts/                     <- Automated Verification & Profiling Scripts
-│   ├── verify_all.py            <- Master verification running all phase suites
-│   ├── verify_demo.py           <- End-to-end 20-step demonstration verification
-│   └── profile_application.py   <- Application runtime & memory profiler
-│
-└── tests/                       <- Automated Test Suite (260 Passing Tests)
-```
+- **MultiGraph Representation:** Accurately models parallel metro services and branch lines operating on shared track infrastructure using `networkx.MultiGraph`.
+- **6 Routing Objectives:**
+  1. **Minimum Stops (BFS):** Unweighted shortest-hop station paths.
+  2. **Minimum Travel Time (Dijkstra):** Segment travel time minimization.
+  3. **Minimum Distance (Dijkstra):** Physical track distance minimization.
+  4. **Minimum Transfers (0-1 BFS):** Line-switch minimization on an expanded state graph $(V \times L)$.
+  5. **Minimum Transfers, Then Fastest (Lexicographic):** Sequential multi-objective optimization.
+  6. **Transfer-Aware Dijkstra:** Incorporates configurable platform friction penalties (0–15 min).
+- **Structural Station Importance:**
+  - Normalized **Degree Centrality** on projected simple graphs.
+  - Brandes **Betweenness Centrality** identifying topological bridge stations.
+  - Tarjan DFS **Articulation Point (Cut-Vertex)** detection identifying single points of failure.
+- **Station Closure & Resilience Simulator:**
+  - Non-destructive simulations executing on isolated graph copies (`graph.copy()`).
+  - Topological fragmentation analysis and pairwise reachability loss:
+    $$\text{Reachable Pairs} = \sum_{i=1}^k \frac{n_i(n_i - 1)}{2}$$
+  - Automated commuter detour recalculation with visual severed-link rendering.
+- **Interactive Offline Dashboard:**
+  - Built with Streamlit in a professional dark theme (`#0B1120`, `#1E293B`, `#38BDF8`).
+  - Zero external map/tile dependencies (strictly Plotly schematic layout).
+  - CSV and JSON artifact export center for itineraries, metrics, and GraphML caches.
 
 ---
 
-## 5. Quick Start (Windows & Python 3.11)
+## 🛠️ Technology Stack
 
-### Step 1: Create & Activate Virtual Environment
+| Layer | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Language** | Python 3.11.x | Core execution environment |
+| **Graph Model** | NetworkX 3.2+ | In-memory MultiGraph & algorithm baseline |
+| **Data Processing** | Pandas 2.2+, NumPy 1.26+ | Dataset validation, metrics computation |
+| **Visualization** | Plotly 5.24+ | Interactive offline network & route rendering |
+| **Web Interface** | Streamlit 1.40+ | Reactive multipage dashboard & session caching |
+| **Quality & Tests**| Pytest, Streamlit AppTest, Ruff | Testing suite & zero-defect linting |
+
+---
+
+## 🚀 Quickstart & Installation (Windows PowerShell)
+
 ```powershell
-python -m venv .venv
+# 1. Clone or navigate to the repository
+cd "C:\Users\devad\OneDrive\Desktop\LSGA PBL"
+
+# 2. Create and activate a Python 3.11 virtual environment
+py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
-```
 
-### Step 2: Install Dependencies
-```powershell
+# 3. Upgrade pip and install dependencies
+python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-```
 
-### Step 3: Run Master System Verification
-```powershell
-python scripts/verify_all.py
-```
-
-### Step 4: Launch the Streamlit Dashboard
-```powershell
+# 4. Launch the Streamlit dashboard
 python -m streamlit run app.py
 ```
-Open your browser to `http://localhost:8501`.
+Open your browser at `http://localhost:8501`.
 
 ---
 
-## 6. Testing & Quality Assurance Summary
+## 🧪 Testing, Benchmarking & Reproduction
 
+### Run Complete Test Suite
 ```powershell
-python -m pytest
-```
-```text
-============================= test session starts =============================
-platform win32 -- Python 3.11.16, pytest-8.3.5
-collected 260 items
-
-260 passed in 14.21s (100% pass rate)
+python -m pytest -v
 ```
 
-All 177 repository files pass static analysis with zero errors:
+### Run Static Analysis & Linter
 ```powershell
 python -m ruff check .
 ```
 
----
+### Run Performance Benchmarks
+```powershell
+python scripts\benchmark_algorithms.py
+```
 
-## 7. Syllabus Coverage Matrix (Modules 1–5)
+### Reproduce All Experimental Results
+```powershell
+python scripts\reproduce_results.py --dataset metro --benchmarks
+```
 
-| Syllabus Module | Key Topics Covered | Implemented Code | Dashboard Page |
-|---|---|---|---|
-| **Module 1: Graph Fundamentals** | Directed multigraphs, parallel edges, GraphML, matrices | `src/graph/` | `1_Network_Overview.py` |
-| **Module 2: Traversal & Spatial** | BFS hop minimality, DFS cycles, Haversine formula | `src/algorithms/traversal.py` | `2_Traversal_Lab.py` |
-| **Module 3: Partitioning & Indexing** | Geographic bisection, region growing, 3D KD-Tree | `src/partitioning/`, `src/indexing/` | `6_Partitioning_Lab.py` |
-| **Module 4: Shortest Paths & Routing** | Dijkstra, A*, Bidirectional Dijkstra, Yen's K-paths | `src/algorithms/`, `src/routing/` | `3_Route_Optimizer.py` |
-| **Module 5: Analytics & Resilience** | Centrality, percolation, MSF, benchmarking | `src/analytics/`, `src/benchmarks/`| `4_`, `5_`, `7_` pages |
-
----
-
-## 8. Measured Performance Highlights
-
-- **Route Cost Optimality:** 100% agreement between manual Dijkstra, manual A*, manual Bidirectional Dijkstra, and NetworkX ground truth ($0.000000$ deviation).
-- **Search Space Pruning:**
-  - A* reduces explored nodes by **32.7%** compared to Dijkstra.
-  - Bidirectional Dijkstra reduces explored nodes by **45.0%** compared to Dijkstra.
-- **Spatial Nearest-Node Query Speedup:**
-  - 3D ECEF KD-Tree achieves a **25x to 52x speedup** over linear brute-force scanning.
-- **Resilience Vulnerability:**
-  - Targeted removal of the top 15%–20% of high-betweenness hubs destroys network connectivity, while random node failure preserves connectivity beyond 40% node loss.
+### Master Phase 8 System Verification
+```powershell
+python scripts\verify_final_project.py
+```
 
 ---
 
-## 9. Academic Prototype Notice
+## 📂 Project Structure
 
-SmartRoute Analytics is an academic research and demonstration prototype developed for coursework evaluation. It is not designed or certified for real-world emergency vehicle dispatch, live GPS telemetry, or municipal traffic signal preemption.
+```
+LSGA PBL/
+|-- app.py                              # Main Streamlit Landing Dashboard
+|-- config.py                           # Central System Settings & Path Resolution
+|-- requirements.txt                    # Project Dependencies
+|-- pyproject.toml                      # Tooling & Linting Config
+|-- README.md                           # Master Project Documentation
+|
+|-- data/
+|   |-- sample/                         # Offline Synthetic Grid (12 Stations, 3 Lines)
+|   |-- metro/                          # Real Delhi Metro Network (260 Stations, 13 Lines)
+|   |-- processed/                      # Cached GraphML Graph Serializations
+|
+|-- src/
+|   |-- core/                           # Logging, Configuration, Exception Classes
+|   |-- data/                           # Relational CSV Loaders & Schema Validators
+|   |-- graph/                          # MultiGraph Builder & Interchange Detection
+|   |-- algorithms/                     # BFS, Dijkstra, 0-1 BFS, Lexicographic Routing
+|   |-- analytics/                      # Centralities, Tarjan Cut-Vertices, Rankings
+|   |-- simulation/                     # Closure Engine, Reachability, Detour Rerouting
+|   |-- visualization/                  # Plotly Schematic Plots & Route Maps
+|   |-- ui/                             # Design System, Components, Session State
+|
+|-- pages/
+|   |-- 1_Metro_Overview.py             # Network Map, Line Filters & Registries
+|   |-- 2_Route_Planner.py              # 6-Objective Routing Engine & Directions
+|   |-- 3_Station_Importance.py         # Centrality Heatmap & Station Comparisons
+|   |-- 4_Closure_Simulator.py          # Station Outages, Fragmentations & Detours
+|   |-- 5_Algorithm_Lab.py              # Theoretical Bounds & Live Latency Charts
+|   |-- 6_Results.py                    # CSV/JSON Data & Report Export Center
+|
+|-- tests/
+|   |-- unit/                           # Property-Based Invariant Tests
+|   |-- integration/                    # Dashboard UI AppTest & Module Tests
+|   |-- system/                         # Full End-to-End Workflow Tests
+|
+|-- scripts/
+|   |-- benchmark_algorithms.py         # High-Resolution Microbenchmarking Suite
+|   |-- run_route_experiments.py        # Multi-Objective Route Comparison Runner
+|   |-- run_station_analysis.py         # Centrality & Ranking Experiment Runner
+|   |-- run_resilience_experiments.py   # Outage Resilience Experiment Runner
+|   |-- reproduce_results.py            # Master Results Reproduction Script
+|   |-- verify_final_project.py         # Complete Phase 8 Submission Verifier
+|
+|-- results/
+|   |-- benchmarks/                     # Benchmark CSVs, Summary JSON, HTML Charts
+|   |-- experiments/                    # Experimental Route, Centrality & Closure CSVs
+|   |-- reports/                        # Visual Reports & Top 10 Centrality Charts
+|
+|-- docs/
+|   |-- final_project_audit.md          # Comprehensive Component Status Audit
+|   |-- final_project_report.md         # Full Academic Research & Capstone Report
+|   |-- windows_installation.md         # Detailed Windows PowerShell Setup Guide
+|   |-- architecture.md                 # System Architecture & Mermaid Diagram
+|   |-- presentation_outline.md         # 14-Slide Evaluation Deck Structure
+|   |-- demo_script.md                  # 5-7 Minute Live Examiner Demonstration
+|   |-- viva_questions.md               # 42 Comprehensive Viva Questions & Answers
+```
+
+---
+
+## 📊 Dataset Invariants & Ethical Transparency
+
+- **Schematic Visualization Notice:** Station coordinates and track links are plotted schematically. They represent topological metro connections, not surveyed railway vector curves.
+- **Zero Fabricated Results:** All reported timings and metrics reflect actual code execution using Python's high-resolution timers (`time.perf_counter_ns()`).
+- **Academic Disclaimer:** The application provides structural analysis. It does not predict live signaling train delays or real-time passenger crowd movements.
